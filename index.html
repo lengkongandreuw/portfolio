@@ -303,7 +303,7 @@ class AndrewLengkong {
                         <div class="inline-block animate-marquee uppercase font-mono text-xs tracking-widest">
                             <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="BASED IN MANADO, INDONESIA" data-lang-zh="驻于印度尼西亚万鸦老">BASED IN MANADO, INDONESIA</span>
                             <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="ESTABLISHED 1989" data-lang-zh="始于1989年">ESTABLISHED 1989</span>
-                            <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="CODE IS DESIGN" data-lang-zh="代码即是设计">CODE IS DESIGN</span>
+                            <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="CODE IS DESIGN" data-lang-zh="代码即es设计">CODE IS DESIGN</span>
                         </div>
                     </div>
                 </div>
@@ -454,7 +454,7 @@ class AndrewLengkong {
                         <div class="absolute inset-2 border border-white/30 transform rotate-1 pointer-events-none"></div>
 
                         <div class="space-y-6 text-stone-200 text-base md:text-lg leading-relaxed font-space z-10 relative mt-6">
-                            <p data-lang-en="Designer with 15+ years of experience in UI/UX, visual design, and digital products. I design mobile apps, games, and marketing visuals." data-lang-zh="拥有超过 15 年行业经验的资深设计师，专注于 UI/UX、视觉设计和数字产品。我设计移动应用程序、游戏和营销视觉效果。">
+                            <p data-lang-en="Designer with 15+ years of experience in UI/UX, visual design, and digital products. I design mobile apps, games, and marketing visuals." data-lang-zh="拥有超过 15 年行业经验的资深设计师，专注于 UI/UX、视觉设计 and 数字产品。我设计移动应用程序、游戏和营销视觉效果。">
                                 Designer with 15+ years of experience in UI/UX, visual design, and digital products. I design mobile apps, games, and marketing visuals.
                             </p>
                             <p data-lang-en="Strong in turning ideas into clear and engaging designs. Experienced in leading projects and working with cross-functional teams." data-lang-zh="善于将创意转化为清晰且引人入胜的设计。在领导项目以及与跨职能团队合作方面经验丰富。">
@@ -468,7 +468,7 @@ class AndrewLengkong {
         </div>
     </section>
 
-    <!-- SECTION 3: WHAT I DESIGN (Hardcoded Bento Box Grid with Custom Background) -->
+    <!-- SECTION 3: WHAT I DESIGN (Hardcoded Bento Box Grid with Direct Modal Overlays) -->
     <section id="services" class="relative min-h-screen w-full bg-grunge-black py-24 px-6 md:px-12 lg:px-20 overflow-hidden">
         
         <!-- Base Section 3 Background Image -->
@@ -494,10 +494,10 @@ class AndrewLengkong {
                 </div>
 
                 <!-- 01: Branding & Logo Design -->
-                <a href="#link-01" class="bento-item col-span-1 md:col-span-2 lg:col-span-2 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block">
-                    <!-- Ganti src di bawah ini dengan gambar thumbnail asli Anda -->
-                    <img src="./thumb-branding.jpg" alt="Branding" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700" onerror="this.style.display='none'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <button onclick="openBentoModal('branding')" class="bento-item col-span-1 md:col-span-2 lg:col-span-2 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block text-left w-full h-full">
+                    <!-- GitHub Raw Background with texture overlay -->
+                    <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/logo.png" alt="Branding Background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
                     
                     <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end z-10">
                         <div>
@@ -508,14 +508,14 @@ class AndrewLengkong {
                             <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
                         </div>
                     </div>
-                </a>
+                </button>
 
                 <!-- 02: UI/UX App & Web Design (Tall Box) -->
-                <a href="#link-02" class="bento-item col-span-1 md:col-span-1 lg:col-span-1 row-span-2 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block flex flex-col justify-between">
-                    <img src="./thumb-uiux.jpg" alt="UI/UX" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700" onerror="this.style.display='none'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                <button onclick="openBentoModal('uiux')" class="bento-item col-span-1 md:col-span-1 lg:col-span-1 row-span-2 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block text-left w-full h-full flex flex-col justify-between">
+                    <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/uiux.png" alt="UI/UX Background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                     
-                    <div class="relative z-10 p-6 flex flex-col h-full">
+                    <div class="relative z-10 p-6 flex flex-col h-full w-full">
                         <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors self-end mb-auto">
                             <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
                         </div>
@@ -524,12 +524,12 @@ class AndrewLengkong {
                             <h3 class="font-syne text-2xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors" data-lang-en="UI/UX APP & WEB DESIGN" data-lang-zh="UI/UX 应用程序与网页设计">UI/UX APP & WEB DESIGN</h3>
                         </div>
                     </div>
-                </a>
+                </button>
 
                 <!-- 03: Digital Imaging & Retouch -->
-                <a href="#link-03" class="bento-item col-span-1 md:col-span-1 lg:col-span-2 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block">
-                    <img src="./thumb-digital.jpg" alt="Digital Imaging" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700" onerror="this.style.display='none'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <button onclick="openBentoModal('digital')" class="bento-item col-span-1 md:col-span-1 lg:col-span-2 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block text-left w-full h-full">
+                    <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/imagedig.png" alt="Digital Imaging Background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
                     
                     <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end z-10">
                         <div>
@@ -540,14 +540,14 @@ class AndrewLengkong {
                             <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
                         </div>
                     </div>
-                </a>
+                </button>
 
                 <!-- 04: Social Media & Pub (Tall Box) -->
-                <a href="#link-04" class="bento-item col-span-1 md:col-span-1 lg:col-span-1 row-span-2 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block flex flex-col justify-between">
-                    <img src="./thumb-social.jpg" alt="Social Media" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700" onerror="this.style.display='none'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                <button onclick="openBentoModal('social')" class="bento-item col-span-1 md:col-span-1 lg:col-span-1 row-span-2 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block text-left w-full h-full flex flex-col justify-between">
+                    <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/socialmedia.png" alt="Social Media Background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                     
-                    <div class="relative z-10 p-6 flex flex-col h-full">
+                    <div class="relative z-10 p-6 flex flex-col h-full w-full">
                         <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors self-end mb-auto">
                             <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
                         </div>
@@ -556,12 +556,12 @@ class AndrewLengkong {
                             <h3 class="font-syne text-2xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors" data-lang-en="SOCIAL MEDIA & PUB" data-lang-zh="社交媒体与出版">SOCIAL MEDIA & PUB</h3>
                         </div>
                     </div>
-                </a>
+                </button>
 
                 <!-- 05: Esport Design & Brand -->
-                <a href="#link-05" class="bento-item col-span-1 md:col-span-1 lg:col-span-2 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block">
-                    <img src="./thumb-esport.jpg" alt="Esport Design" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700" onerror="this.style.display='none'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <button onclick="openBentoModal('esports')" class="bento-item col-span-1 md:col-span-1 lg:col-span-2 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block text-left w-full h-full">
+                    <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/sports.png" alt="Esport Design Background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
                     
                     <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end z-10">
                         <div>
@@ -572,34 +572,34 @@ class AndrewLengkong {
                             <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
                         </div>
                     </div>
-                </a>
+                </button>
 
-                <!-- 06: Interactive & Motion -->
-                <a href="#link-06" class="bento-item col-span-1 md:col-span-1 lg:col-span-1 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block flex flex-col justify-between">
-                    <img src="./thumb-interactive.jpg" alt="Interactive & Motion" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700" onerror="this.style.display='none'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <!-- 06: Merch and Fashion -->
+                <button onclick="openBentoModal('merch')" class="bento-item col-span-1 md:col-span-1 lg:col-span-1 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block text-left w-full h-full flex flex-col justify-between">
+                    <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/Screenshot%202026-06-02%20183144.png" alt="Merch and Fashion Background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                     
                     <div class="relative z-10 p-6 flex flex-col h-full justify-end">
                         <span class="font-mono text-grunge-red font-bold text-lg block mb-1">06</span>
-                        <h3 class="font-syne text-xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors leading-tight" data-lang-en="INTERACTIVE & MOTION" data-lang-zh="互动与动态设计">INTERACTIVE & MOTION</h3>
+                        <h3 class="font-syne text-xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors leading-tight" data-lang-en="MERCH & FASHION" data-lang-zh="周边商品与时尚设计">MERCH & FASHION</h3>
                     </div>
-                </a>
+                </button>
 
-                <!-- 07: Print & Merchandise -->
-                <a href="#link-07" class="bento-item col-span-1 md:col-span-2 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block">
-                    <img src="./thumb-print.jpg" alt="Print & Merchandise" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700" onerror="this.style.display='none'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <!-- 07: Game Design Related -->
+                <button onclick="openBentoModal('game')" class="bento-item col-span-1 md:col-span-2 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block text-left w-full h-full">
+                    <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/ganedesign.png" alt="Game Design Background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                     
                     <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end z-10">
                         <div>
                             <span class="font-mono text-grunge-red font-bold text-lg block mb-1">07</span>
-                            <h3 class="font-syne text-2xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors" data-lang-en="PRINT & MERCHANDISE" data-lang-zh="印刷品与商品设计">PRINT & MERCHANDISE</h3>
+                            <h3 class="font-syne text-2xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors" data-lang-en="GAME DESIGN RELATED" data-lang-zh="游戏设计相关">GAME DESIGN RELATED</h3>
                         </div>
                         <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors flex-shrink-0">
                             <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
                         </div>
                     </div>
-                </a>
+                </button>
 
             </div>
 
@@ -760,8 +760,175 @@ class AndrewLengkong {
         </div>
     </section>
 
+    <!-- INTERACTIVE PORTFOLIO MODAL OVERLAY -->
+    <div id="bento-modal" class="fixed inset-0 z-[1000] hidden items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+        <!-- Modal Frame with Grunge styling -->
+        <div class="bg-stone-900 border-4 border-grunge-red max-w-2xl w-full rounded-lg shadow-2xl relative overflow-hidden transform scale-95 opacity-0 transition-all duration-300 flex flex-col" id="modal-content-container">
+            
+            <!-- Tape visual on top of modal -->
+            <div class="blue-tape absolute -top-2 left-6 px-4 py-1 text-[10px] text-white font-mono uppercase z-50 tracking-widest select-none">
+                <span data-lang-en="PORTFOLIO DISPATCH" data-lang-zh="项目派遣系统">PORTFOLIO DISPATCH</span>
+            </div>
+
+            <!-- Header with close button -->
+            <div class="p-6 border-b border-white/10 flex justify-between items-center bg-black/40 pt-10">
+                <div>
+                    <span id="modal-card-num" class="font-mono text-grunge-red font-bold text-sm block">// CARD 01</span>
+                    <h3 id="modal-card-title" class="font-syne text-2xl font-black text-white uppercase tracking-tight">BRANDING & LOGO DESIGN</h3>
+                </div>
+                <button onclick="closeBentoModal()" class="w-10 h-10 rounded-full border border-white/20 hover:border-grunge-red text-white hover:text-grunge-red flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Project Links List Container -->
+            <div class="p-6 overflow-y-auto max-h-[60vh] space-y-3" id="modal-links-container">
+                <!-- Dynamically populated by JS -->
+            </div>
+
+            <!-- Footer Badge -->
+            <div class="p-4 bg-black/60 border-t border-white/10 text-center select-none">
+                <span class="font-mono text-[9px] text-stone-500 uppercase tracking-widest">ANDREW LENGKONG STUDIO NETWORK © 2026</span>
+            </div>
+        </div>
+    </div>
+
     <!-- JS INTERACTIONS & ANIMATION CODE -->
     <script>
+        // CAPABILITIES MULTI-LINK CONFIG DATA
+        const bentoProjects = {
+            branding: {
+                num: "01",
+                title_en: "BRANDING & LOGO DESIGN",
+                title_zh: "品牌与标志设计",
+                links: [
+                    { name: "Bison Insulation Rebranding Project", url: "https://www.behance.net/gallery/240372477/Bison-Insulation-Rebranding-Project" },
+                    { name: "Synthetix IT Brand Identity Design", url: "https://www.behance.net/gallery/237636239/Synthetix-IT-Brand-Identity-Design" },
+                    { name: "Tomohon City Branding Project", url: "https://www.behance.net/gallery/187744867/Tomohon-City-Branding-Project" },
+                    { name: "Airmadidi City Branding", url: "https://www.behance.net/gallery/187422859/Airmadidi-City-Branding" },
+                    { name: "Karskay Logo", url: "https://www.behance.net/gallery/101907351/Karskay-Logo" },
+                    { name: "Kasumasa Branding", url: "https://www.behance.net/gallery/101907451/Kasumasa-Branding" }
+                ]
+            },
+            uiux: {
+                num: "02",
+                title_en: "UI/UX APP & WEB DESIGN",
+                title_zh: "UI/UX 应用程序与网页设计",
+                links: [
+                    { name: "Vimigo Company Leave Application", url: "https://www.behance.net/gallery/186315043/Vimigo-Company-Leave-Application" },
+                    { name: "Manadopost Mobile App Revamp Case Study", url: "https://www.behance.net/gallery/186336023/Manadopost-Mobile-App-Revamp-Case-Study" },
+                    { name: "Pasiar Tourism Reservation App Case Study", url: "https://www.behance.net/gallery/187683203/Pasiar-Tourism-Reservation-app-a-case-study" }
+                ]
+            },
+            digital: {
+                num: "03",
+                title_en: "DIGITAL IMAGING & RETOUCH",
+                title_zh: "数字成像与修饰",
+                links: [
+                    { name: "Football Legends Artworks", url: "https://www.behance.net/gallery/67813915/Football-Legends" },
+                    { name: "Stiven & Cindy Wedding Album Layout", url: "https://www.behance.net/gallery/2932791/StivenCindy-Wedding-Album" },
+                    { name: "Tomohon International Flower Festival (TIFF) 2019", url: "https://www.behance.net/gallery/76796273/TIFF-2019" }
+                ]
+            },
+            social: {
+                num: "04",
+                title_en: "SOCIAL MEDIA & PUB",
+                title_zh: "社交媒体与出版",
+                links: [
+                    { name: "Global Marketing Dubai Layouts", url: "https://www.behance.net/gallery/250100125/Global-Marketing-Dubai" },
+                    { name: "Global Bistro Mediterranean Cuisine Publication", url: "https://www.behance.net/gallery/249977605/Global-Bistro-Mediterraniian-Cuisine-Publication" },
+                    { name: "VisionHomes Real Estate Social Media Branding", url: "https://www.behance.net/gallery/188263279/VisionHomes-Real-Estate-Social-Media-Branding" },
+                    { name: "Nadi Health Tech Social Media Post Set", url: "https://www.behance.net/gallery/188289013/Nadi-Health-Tech-Social-media-Post" },
+                    { name: "Mall Social Media Rebranding Case", url: "https://www.behance.net/gallery/227970645/MALL-SOCIAL-MEDIA-REBRANDING" }
+                ]
+            },
+            esports: {
+                num: "05",
+                title_en: "ESPORT DESIGN & BRAND",
+                title_zh: "电竞设计与品牌",
+                links: [
+                    { name: "Warbiasa Esport Tournament Publication Design", url: "https://www.behance.net/gallery/249763725/Warbiasa-Esport-Tournament-Publication-Design" },
+                    { name: "World Cup 2026 Artwork Commission", url: "https://www.behance.net/gallery/249968611/World-Cup-2026-Artwork-(Commision)" },
+                    { name: "Sport Betting Publication Design", url: "https://www.behance.net/gallery/248667443/Sport-Beting-Publication-Design" },
+                    { name: "Liga 1 Indonesia Matchday Poster Layouts", url: "https://www.behance.net/gallery/213822885/Liga-1-Indonesia-Matchday-Poster" }
+                ]
+            },
+            merch: {
+                num: "06",
+                title_en: "MERCH & FASHION",
+                title_zh: "周边商品与时尚设计",
+                links: [
+                    { name: "Centvrion Clothing Merch Layouts", url: "https://www.behance.net/gallery/153660233/CENTVRION-MERCH" },
+                    { name: "Minahasa Utara Nimau Kering Merchandise", url: "https://www.behance.net/gallery/114421547/Minut-Nimau-Kering-Merchandise" }
+                ]
+            },
+            game: {
+                num: "07",
+                title_en: "GAME DESIGN RELATED",
+                title_zh: "游戏设计相关",
+                links: [
+                    { name: "Intuitive AR-Based Guide to Historic Burial Site", url: "https://www.behance.net/gallery/187603607/Intuitive-AR-based-guide-to-historic-burial-site" },
+                    { name: "Wardeka Mobile Shooting Game Project Assets", url: "https://www.behance.net/gallery/153824559/Wardeka-Mobile-Shooting-Game" }
+                ]
+            }
+        };
+
+        // OPEN PORTFOLIO OVERLAY MODAL
+        function openBentoModal(cardId) {
+            const data = bentoProjects[cardId];
+            if (!data) return;
+
+            const modal = document.getElementById('bento-modal');
+            const container = document.getElementById('modal-content-container');
+            const linksContainer = document.getElementById('modal-links-container');
+            
+            // Set Titles & Numbers
+            document.getElementById('modal-card-num').textContent = `// CARD ${data.num}`;
+            document.getElementById('modal-card-title').textContent = currentLanguage === 'en' ? data.title_en : data.title_zh;
+
+            // Generate HTML link elements
+            linksContainer.innerHTML = '';
+            data.links.forEach(link => {
+                const linkCard = document.createElement('a');
+                linkCard.href = link.url;
+                linkCard.target = "_blank";
+                linkCard.className = "flex justify-between items-center bg-black/60 border border-white/5 p-4 rounded hover:border-grunge-red hover:bg-stone-800/80 transition-all group duration-300 shadow-md";
+                linkCard.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <span class="w-2 h-2 rounded-full bg-grunge-red group-hover:scale-125 transition-transform"></span>
+                        <span class="font-space text-sm font-bold text-stone-200 group-hover:text-white transition-colors">${link.name}</span>
+                    </div>
+                    <span class="font-mono text-xs text-stone-500 group-hover:text-grunge-red flex items-center gap-1">
+                        VIEW PROJECT <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </span>
+                `;
+                linksContainer.appendChild(linkCard);
+            });
+
+            // Trigger animations
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            setTimeout(() => {
+                container.classList.remove('scale-95', 'opacity-0');
+                container.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        // CLOSE PORTFOLIO MODAL
+        function closeBentoModal() {
+            const modal = document.getElementById('bento-modal');
+            const container = document.getElementById('modal-content-container');
+            
+            container.classList.remove('scale-100', 'opacity-100');
+            container.classList.add('scale-95', 'opacity-0');
+
+            setTimeout(() => {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
         // Custom Language state management
         let currentLanguage = 'en';
 
