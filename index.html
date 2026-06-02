@@ -468,40 +468,143 @@ class AndrewLengkong {
         </div>
     </section>
 
-    <!-- SECTION 3: WHAT I DESIGN (The Bento Box Grid - Powered by Replaceable Config Data) -->
+    <!-- SECTION 3: WHAT I DESIGN (Hardcoded Bento Box Grid with Custom Background) -->
     <section id="services" class="relative min-h-screen w-full bg-grunge-black py-24 px-6 md:px-12 lg:px-20 overflow-hidden">
-        <div class="absolute inset-0 grid-pattern-dark pointer-events-none opacity-30 z-0"></div>
+        
+        <!-- Base Section 3 Background Image -->
+        <div class="absolute inset-0 w-full h-full pointer-events-none z-0">
+            <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/section3bg.png" alt="What I Design Background" class="w-full h-full object-cover opacity-90">
+            <!-- Overlay gradient untuk memastikan teks tetap terbaca -->
+            <div class="absolute inset-0 bg-gradient-to-b from-grunge-black/60 via-transparent to-grunge-black"></div>
+        </div>
 
         <div class="max-w-7xl mx-auto relative z-10">
             
-            <!-- Replaceable Header Banner for Section 3 (image_8e423d.jpg) -->
-            <div class="relative w-full mb-10">
-                <img src="./image_8e423d.jpg" alt="What I Design Capabilities Grid" id="image_8e423d-img" class="w-full h-auto max-h-48 object-cover hidden rounded border border-stone-800" onload="this.classList.remove('hidden');" onerror="this.remove();">
-            </div>
+            <!-- THE HARDCODED BENTO BOX GRID LAYOUT -->
+            <!-- Layout logic: 4 columns setup to mimic the masonry/bento reference image -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px] md:auto-rows-[300px]">
 
-            <!-- Standard Section Header -->
-            <div class="mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-                <div>
+                <!-- Title Header Box -->
+                <div class="col-span-1 md:col-span-2 lg:col-span-2 row-span-1 flex flex-col justify-center p-4 lg:p-10 bg-transparent border-none bento-item">
                     <span class="font-mono text-grunge-red uppercase tracking-widest text-sm font-bold block mb-2">// CAPABILITIES INDEX</span>
-                    <h2 class="font-syne text-4xl md:text-7xl font-black text-white uppercase select-none leading-none">
+                    <h2 class="font-syne text-5xl lg:text-7xl font-black text-white uppercase select-none leading-none mb-4">
                         <span data-lang-en="WHAT I" data-lang-zh="设计">WHAT I</span><br>
                         <span class="text-grunge-red bg-grunge-white text-grunge-black px-4 transform rotate-1 inline-block" data-lang-en="DESIGN" data-lang-zh="范畴">DESIGN</span>
                     </h2>
                 </div>
-                <div class="max-w-md text-stone-400 font-mono text-sm leading-relaxed border-l-2 border-grunge-red pl-4">
-                    <p data-lang-en="A rigorous categorization of modern design disciplines. Every grid node is designed with structural elegance combined with a digital punk aesthetic." data-lang-zh="现代设计学科的严格分类。每一个网络节点都经过精心策划，融合了结构上的优雅与数字朋克的美学底蕴。">
-                        A rigorous categorization of modern design disciplines. Every grid node is designed with structural elegance combined with a digital punk aesthetic.
-                    </p>
-                </div>
-            </div>
 
-            <!-- THE DYNAMIC BENTO BOX GRID LAYOUT -->
-            <div id="bento-grid-container" class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
-                <!-- Dynamically Populated by JavaScript Array -->
+                <!-- 01: Branding & Logo Design -->
+                <a href="#link-01" class="bento-item col-span-1 md:col-span-2 lg:col-span-2 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block">
+                    <!-- Ganti src di bawah ini dengan gambar thumbnail asli Anda -->
+                    <img src="./thumb-branding.jpg" alt="Branding" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700" onerror="this.style.display='none'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                    
+                    <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end z-10">
+                        <div>
+                            <span class="font-mono text-grunge-red font-bold text-lg block mb-1">01</span>
+                            <h3 class="font-syne text-2xl lg:text-3xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors" data-lang-en="BRANDING & LOGO DESIGN" data-lang-zh="品牌与标志设计">BRANDING & LOGO DESIGN</h3>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors flex-shrink-0">
+                            <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 02: UI/UX App & Web Design (Tall Box) -->
+                <a href="#link-02" class="bento-item col-span-1 md:col-span-1 lg:col-span-1 row-span-2 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block flex flex-col justify-between">
+                    <img src="./thumb-uiux.jpg" alt="UI/UX" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700" onerror="this.style.display='none'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                    
+                    <div class="relative z-10 p-6 flex flex-col h-full">
+                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors self-end mb-auto">
+                            <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
+                        </div>
+                        <div class="mt-auto">
+                            <span class="font-mono text-grunge-red font-bold text-lg block mb-1">02</span>
+                            <h3 class="font-syne text-2xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors" data-lang-en="UI/UX APP & WEB DESIGN" data-lang-zh="UI/UX 应用程序与网页设计">UI/UX APP & WEB DESIGN</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 03: Digital Imaging & Retouch -->
+                <a href="#link-03" class="bento-item col-span-1 md:col-span-1 lg:col-span-2 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block">
+                    <img src="./thumb-digital.jpg" alt="Digital Imaging" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700" onerror="this.style.display='none'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                    
+                    <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end z-10">
+                        <div>
+                            <span class="font-mono text-grunge-red font-bold text-lg block mb-1">03</span>
+                            <h3 class="font-syne text-xl lg:text-2xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors" data-lang-en="DIGITAL IMAGING & RETOUCH" data-lang-zh="数字成像与修饰">DIGITAL IMAGING & RETOUCH</h3>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors flex-shrink-0 hidden sm:flex">
+                            <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 04: Social Media & Pub (Tall Box) -->
+                <a href="#link-04" class="bento-item col-span-1 md:col-span-1 lg:col-span-1 row-span-2 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block flex flex-col justify-between">
+                    <img src="./thumb-social.jpg" alt="Social Media" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700" onerror="this.style.display='none'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                    
+                    <div class="relative z-10 p-6 flex flex-col h-full">
+                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors self-end mb-auto">
+                            <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
+                        </div>
+                        <div class="mt-auto">
+                            <span class="font-mono text-grunge-red font-bold text-lg block mb-1">04</span>
+                            <h3 class="font-syne text-2xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors" data-lang-en="SOCIAL MEDIA & PUB" data-lang-zh="社交媒体与出版">SOCIAL MEDIA & PUB</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 05: Esport Design & Brand -->
+                <a href="#link-05" class="bento-item col-span-1 md:col-span-1 lg:col-span-2 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block">
+                    <img src="./thumb-esport.jpg" alt="Esport Design" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700" onerror="this.style.display='none'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                    
+                    <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end z-10">
+                        <div>
+                            <span class="font-mono text-grunge-red font-bold text-lg block mb-1">05</span>
+                            <h3 class="font-syne text-xl lg:text-2xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors" data-lang-en="ESPORT DESIGN & BRAND" data-lang-zh="电竞设计与品牌">ESPORT DESIGN & BRAND</h3>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors flex-shrink-0 hidden sm:flex">
+                            <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 06: Interactive & Motion -->
+                <a href="#link-06" class="bento-item col-span-1 md:col-span-1 lg:col-span-1 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block flex flex-col justify-between">
+                    <img src="./thumb-interactive.jpg" alt="Interactive & Motion" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700" onerror="this.style.display='none'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                    
+                    <div class="relative z-10 p-6 flex flex-col h-full justify-end">
+                        <span class="font-mono text-grunge-red font-bold text-lg block mb-1">06</span>
+                        <h3 class="font-syne text-xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors leading-tight" data-lang-en="INTERACTIVE & MOTION" data-lang-zh="互动与动态设计">INTERACTIVE & MOTION</h3>
+                    </div>
+                </a>
+
+                <!-- 07: Print & Merchandise -->
+                <a href="#link-07" class="bento-item col-span-1 md:col-span-2 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block">
+                    <img src="./thumb-print.jpg" alt="Print & Merchandise" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700" onerror="this.style.display='none'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                    
+                    <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end z-10">
+                        <div>
+                            <span class="font-mono text-grunge-red font-bold text-lg block mb-1">07</span>
+                            <h3 class="font-syne text-2xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors" data-lang-en="PRINT & MERCHANDISE" data-lang-zh="印刷品与商品设计">PRINT & MERCHANDISE</h3>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors flex-shrink-0">
+                            <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
+                        </div>
+                    </div>
+                </a>
+
             </div>
 
             <!-- TOOLS & SYSTEMS SECTION -->
-            <div class="mt-20 pt-16 border-t border-stone-800">
+            <div class="mt-20 pt-16 border-t border-white/10 relative z-10 bento-item">
                 <div class="flex flex-col lg:flex-row items-stretch gap-12">
                     
                     <div class="w-full lg:w-1/3 flex flex-col justify-between">
@@ -659,139 +762,6 @@ class AndrewLengkong {
 
     <!-- JS INTERACTIONS & ANIMATION CODE -->
     <script>
-        // CONFIGURABLE CAPABILITIES DATA (Easy to update and edit!)
-        const servicesData = [
-            {
-                num: "01",
-                id: "uiux",
-                colSpan: "md:col-span-7",
-                title_en: "UI/UX DESIGN & PRODUCT STRATEGY",
-                title_zh: "UI/UX设计与产品策略",
-                desc_en: "Specialized in building scalable, accessible, and intuitive interactive interfaces. Full stack execution from user psychology research to custom wireframing systems, visual component libraries, and functional prototypes.",
-                desc_zh: "专注于构建可扩展、易于访问且直观的交互界面。涵盖从用户心理研究到自定义线框图系统、视觉组件库及功能性原型的全栈执行。",
-                skills_en: ["UI/UX Design", "Web & Mobile App", "Design System", "User Research", "Wireframing & Prototyping"],
-                skills_zh: ["UI/UX 设计", "网页与移动应用", "设计系统", "用户研究", "线框图与原型设计"],
-                badge: "UI_UX_CORE",
-                extra_en: "INDONESIAN TRAVEL GUIDE WEBAPP",
-                extra_zh: "印尼旅游指南应用"
-            },
-            {
-                num: "02",
-                id: "social",
-                colSpan: "md:col-span-5",
-                title_en: "SOCIAL MEDIA & PUBLICATION",
-                title_zh: "社交媒体与出版物",
-                desc_en: "Generating massive viral traction using cohesive digital marketing pipelines. High-profile graphic setups for shopping complexes, promotional campaigns, editorial print layouts, and rich infographics.",
-                desc_zh: "利用高内聚力的数字营销管线，生成海量的病毒式引流。为大型购物中心、促销战役、社论版面及丰富信息图提供高瞩目的平面创意。",
-                skills_en: ["Social Media Content", "Digital Campaign", "Editorial Design", "Infographic", "Presentation Design"],
-                skills_zh: ["社交媒体内容", "数字营销活动", "编辑社论设计", "数据信息图表", "商业演示设计"],
-                badge: "MKT_MEDIA",
-                extra_en: "MANADO TOWN SQUARE CAMPAIGN",
-                extra_zh: "万鸦老城市广场推广案"
-            },
-            {
-                num: "03",
-                id: "esport",
-                colSpan: "md:col-span-4",
-                title_en: "ESPORT BRANDING & GRAPHICS",
-                title_zh: "电竞品牌与视觉包装",
-                desc_en: "High-adrenaline team logo sets, tournament marketing layouts, cyberpunk stream layouts, overlays, and aggressive visual packages built specifically for modern pro gaming leagues.",
-                desc_zh: "专为现代职业游戏联赛打造的高肾上腺素车队徽标、锦标赛营销设计、赛博朋克流布局、覆盖图及侵略性的视觉包装。",
-                skills_en: ["Esports Visual Identity", "Team Branding", "Tournament & Event", "Player Highlight", "Esports Graphics"],
-                skills_zh: ["电子竞技视觉标识", "战队品牌定制", "赛事活动包装", "选手高光栏目", "电竞专属图件"],
-                badge: "ESPORTS",
-                extra_en: "TEAM SAIYAN IDENTITY",
-                extra_zh: "赛亚人战队视觉体系"
-            },
-            {
-                num: "04",
-                id: "branding",
-                colSpan: "md:col-span-4",
-                title_en: "BRANDING & VISUAL SYSTEM",
-                title_zh: "品牌设计与视觉系统",
-                desc_en: "Fostering deep-seated brand recognition. Forging powerful logos, strict design guidelines, corporate business collateral, and premium tangible packaging designs.",
-                desc_zh: "培育深厚的品牌认知度。铸造强大的徽标、严格的设计指南、公司商务间接材料以及高级的可触知包装设计。",
-                skills_en: ["Brand Identity", "Logo Design", "Brand System", "Packaging Design", "Brand Guidelines"],
-                skills_zh: ["品牌视觉识别", "标识徽标设计", "品牌生态系统", "包装结构设计", "品牌使用规范"],
-                badge: "IDENTITY",
-                extra_en: "CORPORATE SYSTEMS ARCH",
-                extra_zh: "企业机构系统架构"
-            },
-            {
-                num: "05",
-                id: "interactive",
-                colSpan: "md:col-span-4",
-                title_en: "GAME UI & MOTION ASSETS",
-                title_zh: "游戏UI与动态资产",
-                desc_en: "Constructing immersive play states. Bespoke mobile gaming asset files, custom UI systems, character select canvases, rich interactive media files, and sleek motion design.",
-                desc_zh: "构建身临其境的游戏状态。定制的移动端游戏资产档案、通用的UI系统、人物选择画布、富交互媒体以及平滑的运动设计。",
-                skills_en: ["Game UI/UX", "Game Asset", "Character Design", "Interactive Media", "Motion & Animation"],
-                skills_zh: ["游戏用户界面", "游戏美术资产", "游戏角色设计", "交互数字媒体", "动态图形与动画"],
-                badge: "INTERACTIVE",
-                extra_en: "ENGINE STATE: ACTIVE_3D",
-                extra_zh: "渲染引擎：活跃3D模式"
-            }
-        ];
-
-        // RENDER WHAT I DESIGN BENTO GRID DYNAMICALLY
-        function renderBentoGrid() {
-            const container = document.getElementById('bento-grid-container');
-            container.innerHTML = ''; // Clear container
-
-            servicesData.forEach(service => {
-                const isEnglish = currentLanguage === 'en';
-                const title = isEnglish ? service.title_en : service.title_zh;
-                const desc = isEnglish ? service.desc_en : service.desc_zh;
-                const skills = isEnglish ? service.skills_en : service.skills_zh;
-                const extra = isEnglish ? service.extra_en : service.extra_zh;
-
-                // Create individual bento card node
-                const card = document.createElement('div');
-                card.className = `${service.colSpan} bg-[#1c1c1c] border border-stone-800 p-8 rounded shadow-xl hover:border-grunge-red transition-all duration-300 relative overflow-hidden group flex flex-col justify-between`;
-                
-                // Construct Skills HTML lists
-                let skillsHTML = '';
-                skills.forEach(skill => {
-                    skillsHTML += `
-                        <li class="flex items-center gap-2 text-stone-300 font-mono text-xs">
-                            <span class="w-1.5 h-1.5 bg-grunge-red rounded-full"></span>
-                            <span>${skill}</span>
-                        </li>
-                    `;
-                });
-
-                card.innerHTML = `
-                    <div>
-                        <div class="flex justify-between items-center mb-6">
-                            <span class="font-syne text-3xl font-black text-grunge-red">${service.num}</span>
-                            <span class="font-mono text-[10px] bg-stone-800 text-stone-400 px-2 py-0.5 rounded">${service.badge}</span>
-                        </div>
-                        <h3 class="font-syne text-2xl font-black text-white uppercase mb-4 tracking-tight">${title}</h3>
-                        <p class="text-stone-400 text-sm mb-6 leading-relaxed">${desc}</p>
-                        
-                        <!-- Dynamic Capability Lists -->
-                        <div class="border-t border-dashed border-stone-800 pt-4 mb-6">
-                            <p class="text-[10px] uppercase font-mono text-grunge-red tracking-wider mb-3">// Focus Capabilities</p>
-                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                ${skillsHTML}
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Bottom Case Badge / Extra Context -->
-                    <div class="bg-black/40 border border-white/5 p-3 rounded-lg flex items-center justify-between mt-4 relative overflow-hidden">
-                        <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                            <span class="font-mono text-[10px] text-stone-300 uppercase tracking-widest">${extra}</span>
-                        </div>
-                        <span class="text-stone-700 font-syne text-2xl font-black pointer-events-none select-none uppercase">${service.id}</span>
-                    </div>
-                `;
-
-                container.appendChild(card);
-            });
-        }
-
         // Custom Language state management
         let currentLanguage = 'en';
 
@@ -814,19 +784,16 @@ class AndrewLengkong {
                 btnEn.classList.remove('bg-grunge-red', 'text-white');
             }
 
-            // Re-render bento grid using language context
-            renderBentoGrid();
-
             // Iterate over all element nodes with translation tags
             const translationElements = document.querySelectorAll('[data-lang-en]');
             translationElements.forEach(el => {
                 if (lang === 'en') {
-                    el.textContent = el.getAttribute('data-lang-en');
+                    el.innerHTML = el.getAttribute('data-lang-en');
                     if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                         el.placeholder = el.getAttribute('data-lang-en');
                     }
                 } else {
-                    el.textContent = el.getAttribute('data-lang-zh');
+                    el.innerHTML = el.getAttribute('data-lang-zh');
                     if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                         el.placeholder = el.getAttribute('data-lang-zh');
                     }
@@ -896,9 +863,6 @@ class AndrewLengkong {
 
         // GSAP Elite Scroll & Entrance Animations on Load
         window.addEventListener('DOMContentLoaded', () => {
-            // Initial render of capabilities grid
-            renderBentoGrid();
-
             // Register ScrollTrigger
             gsap.registerPlugin(ScrollTrigger);
 
@@ -964,8 +928,8 @@ class AndrewLengkong {
                 duration: 1
             });
 
-            // Bento Boxes Reveal Trigger
-            gsap.from('#services #bento-grid-container > div', {
+            // Bento Boxes Reveal Trigger (Updated Selector)
+            gsap.from('#services .bento-item', {
                 scrollTrigger: {
                     trigger: '#services',
                     start: 'top 60%',
