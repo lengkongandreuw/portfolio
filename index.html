@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew Lengkong | Creative Multimedia Designer Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Syne (bold headings), Space Grotesk (tech/mono hybrid), Playfair Display (editorial italic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&family=Space+Grotesk:wght@300;400;500;700&family=Syne:wght@700;800&family=Zhi+Mang+Xing&family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- GSAP (GreenSock) for elite animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        syne: ['Syne', 'sans-serif'],
+                        space: ['Space Grotesk', 'sans-serif'],
+                        editorial: ['Playfair Display', 'serif'],
+                        chinese: ['Noto Sans SC', 'sans-serif'],
+                        brush: ['Zhi Mang Xing', 'cursive']
+                    },
+                    colors: {
+                        grunge: {
+                            black: '#121212',
+                            white: '#F4F3EF', // warm paper white
+                            red: '#D12D2D',
+                            blue: '#1D63B8', // Blue Painter's Tape
+                            gray: '#2C2B2A',
+                            accent: '#F25C05'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121212;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D12D2D;
+            border-radius: 2px;
+        }
+
+        /* Textured Overlays */
+        .noise-bg {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        /* Paper tear shadow & texture helper */
+        .tear-shadow {
+            filter: drop-shadow(0px 8px 15px rgba(0,0,0,0.4));
+        }
+
+        /* Custom Cursor styling */
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #D12D2D;
+            background: rgba(209, 45, 45, 0.2);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+
+        .custom-cursor-dot {
+            width: 6px;
+            height: 6px;
+            background: #D12D2D;
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Grid background patterns */
+        .grid-pattern-light {
+            background-size: 30px 30px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+        }
+
+        .grid-pattern-dark {
+            background-size: 30px 30px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        /* Halftone Dot pattern */
+        .halftone {
+            background-image: radial-gradient(rgba(0,0,0,0.15) 15%, transparent 16%);
+            background-size: 12px 12px;
+        }
+
+        .halftone-dark {
+            background-image: radial-gradient(rgba(255,255,255,0.08) 15%, transparent 16%);
+            background-size: 12px 12px;
+        }
+
+        /* Tape shapes */
+        .blue-tape {
+            background-color: #1D63B8;
+            opacity: 0.9;
+            transform: rotate(-1.5deg);
+            box-shadow: 2px 3px 5px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        .blue-tape::before {
+            content: '';
+            position: absolute;
+            left: -5px; top: 0; bottom: 0; width: 6px;
+            background: repeating-linear-gradient(-45deg, transparent, transparent 2px, #121212 2px, #121212 4px);
+            background-size: 6px 100%;
+            opacity: 0.3;
+        }
+        .blue-tape::after {
+            content: '';
+            position: absolute;
+            right: -5px; top: 0; bottom: 0; width: 6px;
+            background: repeating-linear-gradient(45deg, transparent, transparent 2px, #121212 2px, #121212 4px);
+            background-size: 6px 100%;
+            opacity: 0.3;
+        }
+
+        /* Lined-paper pattern for About Section */
+        .lined-paper {
+            background-color: #F4F3EF;
+            background-image: linear-gradient(#e5e2d9 1px, transparent 1px);
+            background-size: 100% 2.5rem; /* Matches line-height */
+        }
+
+        /* Glitch text effect on hover */
+        .glitch-hover:hover {
+            text-shadow: 2px -1px 0 #D12D2D, -2px 1px 0 #1D63B8;
+            animation: glitch-anim 0.3s infinite;
+        }
+
+        @keyframes glitch-anim {
+            0% { text-shadow: 2px -1px 0 #D12D2D, -2px 1px 0 #1D63B8; }
+            50% { text-shadow: -1px 2px 0 #D12D2D, 2px -2px 0 #1D63B8; }
+            100% { text-shadow: 1px -1px 0 #D12D2D, -1px 1px 0 #1D63B8; }
+        }
+
+        /* Infinite marquee */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 25s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="bg-grunge-black text-grunge-white font-space overflow-x-hidden selection:bg-grunge-red selection:text-white">
+
+    <!-- Noise Texture Overlay (Global) -->
+    <div class="fixed inset-0 noise-bg z-[999]"></div>
+
+    <!-- Custom Cursor Nodes -->
+    <div class="custom-cursor hidden md:block" id="customCursor"></div>
+    <div class="custom-cursor-dot hidden md:block" id="customCursorDot"></div>
+
+    <!-- FLOATING MULTI-LANGUAGE CONTROLLERS & NAV -->
+    <header class="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center mix-blend-difference">
+        <!-- Logo / Identity Badge -->
+        <a href="#hero" class="group flex items-center gap-2">
+            <span class="font-syne text-xl tracking-tighter text-grunge-white group-hover:text-grunge-red transition-colors duration-300">AL.STUDIO</span>
+            <span class="px-1.5 py-0.5 bg-grunge-red text-white text-[9px] font-bold uppercase rounded">ID-2026</span>
+        </a>
+
+        <!-- Floating Control Suite -->
+        <div class="flex items-center gap-4">
+            <!-- Language Selector Switch -->
+            <div class="bg-grunge-black/80 backdrop-blur-md border border-grunge-white/10 px-1 py-1 rounded-full flex items-center relative shadow-xl">
+                <button onclick="toggleLanguage('en')" id="langBtn-en" class="px-3 py-1 text-xs font-bold rounded-full transition-all duration-300 bg-grunge-red text-white">
+                    EN
+                </button>
+                <button onclick="toggleLanguage('zh')" id="langBtn-zh" class="px-3 py-1 text-xs font-bold rounded-full transition-all duration-300 text-grunge-white/60 hover:text-white">
+                    中文
+                </button>
+            </div>
+
+            <!-- Quick Action: Lets Talk -->
+            <a href="mailto:lengkongandrew@gmail.com" class="hidden sm:inline-block px-4 py-1.5 bg-grunge-white text-grunge-black font-bold text-xs uppercase rounded-full hover:bg-grunge-red hover:text-white transition-all duration-300 border border-transparent hover:scale-105 shadow-md">
+                <span data-lang-en="GET IN TOUCH" data-lang-zh="取得联系">GET IN TOUCH</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- SECTION 1: HERO / COVER (Splitted Canvas Style) -->
+    <section id="hero" class="relative min-h-screen w-full flex flex-col md:flex-row items-stretch justify-between overflow-hidden pt-16 md:pt-0">
+        
+        <!-- Base portfoliobg.png Image Layer with Dynamic CSS Fallback if missing -->
+        <div class="absolute inset-0 w-full h-full pointer-events-none z-0">
+            <img src="./portfoliobg.png" alt="Portfolio Base Background" id="portfoliobg-img" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden'); document.getElementById('portfoliobg-fallback').classList.add('hidden');" onerror="this.remove();">
+        </div>
+
+        <!-- Background Layer Fallback (Runs if portfoliobg.png is missing) -->
+        <div id="portfoliobg-fallback" class="absolute inset-0 w-full h-full flex flex-col md:flex-row pointer-events-none z-0">
+            <!-- Left Half (Light/White Canvas) -->
+            <div class="w-full md:w-1/2 bg-grunge-white grid-pattern-light relative p-8 flex flex-col justify-between overflow-hidden">
+                <div class="absolute inset-0 halftone opacity-30"></div>
+                <div class="absolute left-4 bottom-1/4 text-grunge-black/5 font-syne text-[12vw] leading-none select-none uppercase font-black">
+                    DESIGNER
+                </div>
+                <div class="absolute bottom-6 left-6 opacity-10 w-48 h-48">
+                    <svg viewBox="0 0 100 100" class="fill-current text-grunge-black">
+                        <path d="M50 5 L90 25 L80 75 L50 95 L20 75 L10 25 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Right Half (Dark/Black Canvas) -->
+            <div class="w-full md:w-1/2 bg-grunge-black grid-pattern-dark relative overflow-hidden flex flex-col justify-between p-8">
+                <div class="absolute inset-0 halftone-dark opacity-20"></div>
+                <div class="absolute right-4 top-12 text-grunge-white/[0.02] font-mono text-sm leading-relaxed text-right select-none">
+                    <pre>
+class AndrewLengkong {
+  constructor() {
+    this.role = "Creative Director";
+    this.skills = ["UI/UX", "Social Media", "Esports"];
+  }
+}
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- HERO MAIN WORKSPACE -->
+        <div class="relative w-full z-10 flex flex-col md:flex-row items-center justify-between px-6 md:px-12 lg:px-20 py-12 md:py-0 flex-grow min-h-screen">
+            
+            <!-- LEFT COLUMN: headlinecover.png / Styled Typography fallback -->
+            <div class="w-full md:w-[40%] flex flex-col items-start text-grunge-black justify-center z-10 py-6 md:py-0" id="leftHeroColumn">
+                <!-- Replaceable Headline Image -->
+                <div class="relative mb-4">
+                    <img src="./headlinecover.png" alt="Creative Multimedia Designer Headline" id="headlinecover-img" class="max-w-full h-auto hidden" onload="this.classList.remove('hidden'); document.getElementById('headlinecover-fallback').classList.add('hidden');" onerror="this.remove();">
+                </div>
+
+                <!-- Fallback typography block if headlinecover.png is missing -->
+                <div id="headlinecover-fallback" class="bg-transparent rounded-lg relative">
+                    <!-- Distressed Red Badge -->
+                    <div class="inline-block transform -rotate-2 mb-6 px-3 py-1 bg-grunge-red text-white font-mono text-xs font-bold tracking-widest uppercase rounded shadow-lg animate-bounce">
+                        <i class="fa-solid fa-bolt mr-1"></i> PORTFOLIO EDITION 2026
+                    </div>
+                    <h2 class="font-syne text-4xl lg:text-6xl font-black leading-tight tracking-tighter text-grunge-black uppercase select-none">
+                        <span class="block text-grunge-black" data-lang-en="CREATIVE" data-lang-zh="极具创意">CREATIVE</span>
+                        <span class="block bg-grunge-black text-grunge-white px-2 py-1 transform rotate-1 inline-block" data-lang-en="MULTIMEDIA" data-lang-zh="多媒体">MULTIMEDIA</span>
+                        <span class="block text-grunge-black font-editorial italic normal-case tracking-normal" data-lang-en="designer" data-lang-zh="设计师">designer</span>
+                    </h2>
+                </div>
+
+                <!-- Stylized Black Masking/Duct Tape with scrolling text -->
+                <div class="w-full mt-6 bg-grunge-black text-grunge-white py-2 px-3 transform -rotate-1 relative overflow-hidden shadow-lg border-y-2 border-grunge-white/20 select-none">
+                    <div class="flex overflow-hidden whitespace-nowrap">
+                        <div class="inline-block animate-marquee uppercase font-mono text-xs tracking-widest">
+                            <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="BASED IN MANADO, INDONESIA" data-lang-zh="驻于印度尼西亚万鸦老">BASED IN MANADO, INDONESIA</span>
+                            <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="ESTABLISHED 1989" data-lang-zh="始于1989年">ESTABLISHED 1989</span>
+                            <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="15+ YEARS DESIGNING EXPERIENCE" data-lang-zh="15+ 年设计阅历">15+ YEARS DESIGNING EXPERIENCE</span>
+                            <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="CODE IS DESIGN" data-lang-zh="代码即是设计">CODE IS DESIGN</span>
+                        </div>
+                        <div class="inline-block animate-marquee uppercase font-mono text-xs tracking-widest">
+                            <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="BASED IN MANADO, INDONESIA" data-lang-zh="驻于印度尼西亚万鸦老">BASED IN MANADO, INDONESIA</span>
+                            <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="ESTABLISHED 1989" data-lang-zh="始于1989年">ESTABLISHED 1989</span>
+                            <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="15+ YEARS DESIGNING EXPERIENCE" data-lang-zh="15+ 年设计阅历">15+ YEARS DESIGNING EXPERIENCE</span>
+                            <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="CODE IS DESIGN" data-lang-zh="代码即是设计">CODE IS DESIGN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CENTER COLUMN: model1.jpg / SVG Illustration Fallback -->
+            <div class="w-full md:w-[32%] flex justify-center items-center z-20 py-8 md:py-0 relative" id="centerHeroColumn">
+                <div class="relative w-64 h-96 md:w-72 md:h-[460px] bg-neutral-900 overflow-hidden shadow-2xl rounded transform hover:scale-105 transition-transform duration-500 border-4 border-grunge-white">
+                    
+                    <!-- Paper clip top -->
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 z-30 w-10 h-6 bg-stone-300 rounded-b-md border-x-2 border-b-2 border-stone-500 shadow-md"></div>
+
+                    <!-- Replaceable Model Portrait Image -->
+                    <img src="./model1.jpg" alt="Andrew Lengkong Portrait" id="model1-img" class="absolute inset-0 w-full h-full object-cover z-10 hidden" onload="this.classList.remove('hidden'); document.getElementById('model1-fallback').classList.add('hidden');" onerror="this.remove();">
+
+                    <!-- Fallback SVG Portrait if model1.jpg is missing -->
+                    <div id="model1-fallback" class="absolute inset-0 w-full h-full bg-gradient-to-t from-grunge-black to-[#232323] flex items-end justify-center">
+                        <svg viewBox="0 0 200 300" class="w-full h-full object-cover">
+                            <radialGradient id="studioGlow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#D12D2D" stop-opacity="0.3"/>
+                                <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+                            </radialGradient>
+                            <circle cx="100" cy="150" r="100" fill="url(#studioGlow)"/>
+                            <path d="M25 300 L55 240 L100 220 L145 240 L175 300 Z" fill="#0c0c0c"/>
+                            <path d="M85 224 L100 240 L115 224 L100 215 Z" fill="#f4f4f4"/>
+                            <path d="M96 238 L104 238 L106 280 L100 295 L94 280 Z" fill="#D12D2D"/>
+                            <path d="M75 120 C75 75, 125 75, 125 120 C125 150, 115 190, 100 190 Z" fill="#f0d0b0"/>
+                            <path d="M72 110 C70 90, 90 70, 128 80 C130 95, 122 110 Z" fill="#1c1c1c"/>
+                            <rect x="80" y="115" width="16" height="10" rx="2" fill="none" stroke="#000" stroke-width="2"/>
+                            <rect x="104" y="115" width="16" height="10" rx="2" fill="none" stroke="#000" stroke-width="2"/>
+                            <line x1="96" y1="120" x2="104" y2="120" stroke="#000" stroke-width="2"/>
+                            <path d="M10 210 L190 240 L180 255 L5 220 Z" fill="#D12D2D" opacity="0.8"/>
+                        </svg>
+                    </div>
+
+                    <div class="absolute bottom-4 left-4 right-4 bg-grunge-black/75 p-2 rounded border border-white/10 text-[9px] font-mono text-left opacity-90 z-20">
+                        <span class="text-green-400">// PORTFOLIO METADATA</span><br>
+                        OBJECT: MODEL1.JPG | LOCATION: ROOT/
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: nama.jpg / Custom Chalk Blackboard fallback -->
+            <div class="w-full md:w-[28%] flex flex-col items-start justify-center z-10 text-grunge-white py-6 md:py-0" id="rightHeroColumn">
+                <!-- Replaceable Name Image -->
+                <div class="relative w-full mb-4">
+                    <img src="./nama.jpg" alt="Andrew Lengkong Identity Name Card" id="nama-img" class="w-full h-auto hidden rounded shadow-2xl" onload="this.classList.remove('hidden'); document.getElementById('nama-fallback').classList.add('hidden');" onerror="this.remove();">
+                </div>
+
+                <!-- Fallback blackboard card if nama.jpg is missing -->
+                <div id="nama-fallback" class="bg-stone-900 border border-stone-800 p-6 rounded shadow-2xl relative w-full transform rotate-1 select-none">
+                    <div class="absolute -top-3 left-4 transform rotate-12 text-stone-400">
+                        <i class="fa-solid fa-paperclip text-2xl"></i>
+                    </div>
+                    <span class="font-mono text-[10px] uppercase text-grunge-red tracking-widest block mb-2">// BRAND IDENTITY EXCLUSIVE</span>
+                    <h1 class="font-syne text-3xl lg:text-5xl font-black tracking-tighter uppercase leading-none border-b border-grunge-white/10 pb-4 text-white">
+                        ANDREW<br>
+                        LENGKONG
+                    </h1>
+                    <p class="font-brush text-4xl text-grunge-red my-4 text-center transform -rotate-3">
+                        Andrew Lengkong
+                    </p>
+                    <div class="bg-black/90 rounded p-3 font-mono text-xs text-left border border-white/5 mt-4">
+                        <p class="text-[10px] text-green-400">{ "code": "fullstack_graphics" }</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FLOATING NAVIGATION DOCK: footerkiri.png / Custom UI Dock Fallback -->
+        <div class="absolute bottom-0 left-0 w-full z-30 px-6 py-6 flex justify-center pointer-events-auto">
+            <div class="w-full max-w-5xl bg-grunge-black/95 backdrop-blur-md border-t-4 border-grunge-red p-4 rounded-t-lg shadow-2xl flex flex-wrap gap-4 items-center justify-between" id="navigationDock">
+                <!-- Replaceable Footer Left Image -->
+                <div class="flex items-center gap-3">
+                    <img src="./footerkiri.png" alt="Capabilities Dock Badge" id="footerkiri-img" class="h-10 w-auto hidden" onload="this.classList.remove('hidden'); document.getElementById('footerkiri-fallback').classList.add('hidden');" onerror="this.remove();">
+                    
+                    <!-- Fallback badge if footerkiri.png is missing -->
+                    <div id="footerkiri-fallback" class="flex items-center gap-2">
+                        <span class="w-3 h-3 bg-grunge-red rounded-full animate-ping"></span>
+                        <span class="font-mono text-xs uppercase tracking-wider text-stone-300" data-lang-en="EXPLORE CAPABILITIES" data-lang-zh="探索核心能力">EXPLORE CAPABILITIES</span>
+                    </div>
+                </div>
+                
+                <!-- Navigation Anchor Targets -->
+                <div class="flex flex-wrap items-center gap-6">
+                    <a href="#about" class="text-xs font-mono uppercase text-stone-300 hover:text-grunge-red transition-all duration-300 flex items-center gap-1.5 group">
+                        <i class="fa-solid fa-user-ninja text-grunge-red group-hover:rotate-12 transition-transform"></i>
+                        <span data-lang-en="About Andrew" data-lang-zh="关于安德鲁">About Andrew</span>
+                    </a>
+                    <a href="#services" class="text-xs font-mono uppercase text-stone-300 hover:text-grunge-red transition-all duration-300 flex items-center gap-1.5 group">
+                        <i class="fa-solid fa-cubes text-grunge-red group-hover:rotate-12 transition-transform"></i>
+                        <span data-lang-en="What I Design" data-lang-zh="我的设计门类">What I Design</span>
+                    </a>
+                    <a href="#contact" class="text-xs font-mono uppercase text-stone-300 hover:text-grunge-red transition-all duration-300 flex items-center gap-1.5 group">
+                        <i class="fa-solid fa-address-book text-grunge-red group-hover:rotate-12 transition-transform"></i>
+                        <span data-lang-en="Direct Link" data-lang-zh="直连通道">Direct Link</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT ME (Lined Notebook vs Distressed Summary) -->
+    <section id="about" class="relative min-h-screen w-full bg-grunge-white text-grunge-black grid-pattern-light py-24 px-6 md:px-12 lg:px-20 flex flex-col justify-center overflow-hidden">
+        <div class="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+            
+            <!-- LEFT COLUMN: Notebook Biodata -->
+            <div class="lg:col-span-5 flex flex-col justify-center transform -rotate-1">
+                <div class="bg-grunge-black text-white p-3 font-mono text-xs tracking-widest uppercase flex items-center justify-between rounded-t-md">
+                    <span><i class="fa-solid fa-circle-nodes mr-2"></i> BIOGRAPHICAL DOSSIER</span>
+                    <span class="text-grunge-red">ACTIVE.LOG</span>
+                </div>
+
+                <div class="lined-paper shadow-2xl border-x border-b border-stone-300/60 p-8 pt-12 rounded-b-md relative min-h-[450px] flex flex-col justify-between">
+                    <div class="absolute left-6 top-0 bottom-0 w-[2px] bg-red-400 opacity-40"></div>
+
+                    <div class="space-y-10 pl-6 z-10 font-mono text-sm">
+                        <div class="flex items-start justify-between border-b border-dashed border-stone-300/80 pb-1">
+                            <span class="text-stone-500 text-xs uppercase" data-lang-en="Profession" data-lang-zh="职业定位">Profession</span>
+                            <span class="font-bold text-grunge-black" data-lang-en="Experienced Full Stack Graphic Designer" data-lang-zh="资深全栈平面视觉设计师">Experienced Full Stack Graphic Designer</span>
+                        </div>
+                        <div class="flex items-start justify-between border-b border-dashed border-stone-300/80 pb-1">
+                            <span class="text-stone-500 text-xs uppercase" data-lang-en="Born Year" data-lang-zh="出生年份">Born Year</span>
+                            <span class="font-bold text-grunge-black">1989</span>
+                        </div>
+                        <div class="flex items-start justify-between border-b border-dashed border-stone-300/80 pb-1">
+                            <span class="text-stone-500 text-xs uppercase" data-lang-en="Location" data-lang-zh="现居城市">Location</span>
+                            <span class="font-bold text-grunge-black flex items-center gap-1.5">
+                                <i class="fa-solid fa-map-pin text-grunge-red"></i> Manado, Indonesia
+                            </span>
+                        </div>
+                        <div class="flex items-start justify-between border-b border-dashed border-stone-300/80 pb-1">
+                            <span class="text-stone-500 text-xs uppercase">E-Mail</span>
+                            <a href="mailto:lengkongandrew@gmail.com" class="font-bold text-grunge-blue underline hover:text-grunge-red transition-colors">
+                                lengkongandrew@gmail.com
+                            </a>
+                        </div>
+                        <div class="flex items-start justify-between border-b border-dashed border-stone-300/80 pb-1">
+                            <span class="text-stone-500 text-xs uppercase">WhatsApp</span>
+                            <a href="https://wa.me/6285796400320" target="_blank" class="font-bold text-green-700 flex items-center gap-1 hover:underline">
+                                <i class="fa-brands fa-whatsapp"></i> +62 857 9640 0320
+                            </a>
+                        </div>
+                        <div class="flex items-start justify-between border-b border-dashed border-stone-300/80 pb-1">
+                            <span class="text-stone-500 text-xs uppercase">Behance</span>
+                            <a href="https://behance.net/andrewlengkong" target="_blank" class="font-bold text-grunge-blue hover:text-grunge-red transition-colors">
+                                behance.net/andrewlengkong
+                            </a>
+                        </div>
+                        <div class="flex items-start justify-between border-b border-dashed border-stone-300/80 pb-1">
+                            <span class="text-stone-500 text-xs uppercase">LinkedIn</span>
+                            <a href="https://linkedin.com/in/lengkongandrew/" target="_blank" class="font-bold text-grunge-blue hover:text-grunge-red transition-colors">
+                                linkedin.com/in/lengkongandrew/
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex justify-end z-10 select-none opacity-80">
+                        <div class="border-4 border-double border-grunge-red/70 rounded-full px-4 py-2 transform rotate-12 font-syne text-xs text-grunge-red font-bold uppercase tracking-wider text-center">
+                            AUTHENTIC COPY<br>
+                            <span class="font-mono text-[9px] text-stone-500">OFFICIAL ARCHIVE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Distressed Summary Box -->
+            <div class="lg:col-span-7 flex flex-col justify-center relative">
+                <!-- Replaceable Header Image representing Section 2 Title (image_8eb9fe.jpg) -->
+                <div class="relative mb-2">
+                    <img src="./image_8eb9fe.jpg" alt="About Me Summary Banner" id="image_8eb9fe-img" class="w-full h-auto max-h-32 object-contain hidden mb-4" onload="this.classList.remove('hidden'); document.getElementById('image_8eb9fe-fallback').classList.add('hidden');" onerror="this.remove();">
+                </div>
+
+                <!-- Fallback blue painter tape header if image_8eb9fe.jpg is missing -->
+                <div id="image_8eb9fe-fallback" class="blue-tape inline-block self-start px-6 py-2.5 text-white font-syne font-black text-xl lg:text-3xl tracking-widest uppercase z-10 transform -rotate-2 select-none mb-4">
+                    <span data-lang-en="SUMMARY" data-lang-zh="个人自述">SUMMARY</span>
+                </div>
+
+                <!-- Summary Content -->
+                <div class="bg-white border-4 border-grunge-black p-8 md:p-12 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute top-4 left-4 transform -rotate-45 text-stone-400 select-none">
+                        <i class="fa-solid fa-paperclip text-3xl opacity-30"></i>
+                    </div>
+
+                    <div class="space-y-6 text-stone-800 text-base md:text-lg leading-relaxed font-space z-10 relative">
+                        <p class="font-bold border-l-4 border-grunge-red pl-4 py-1" data-lang-en="A graphic and digital product designer with over 15 years of industry experience, specializing in UI/UX, visual direction, and digital media production. Deeply passionate about transforming high-concept, complex ideas into exceptionally crisp, engaging, and high-impact digital experiences." data-lang-zh="拥有超过 15 年行业经验的资深平面及数字产品设计师，专注于 UI/UX、视觉方向和数字媒体制作。我满怀激情，致力于将高概念、复杂的创意转化为异常清晰、迷人且极具影响力的数字体验。">
+                            A graphic and digital product designer with over 15 years of industry experience, specializing in UI/UX, visual direction, and digital media production. Deeply passionate about transforming high-concept, complex ideas into exceptionally crisp, engaging, and high-impact digital experiences.
+                        </p>
+                        <p data-lang-en="My cross-functional expertise spans mobile applications, gaming user interfaces, visual marketing systems, and complete branding frameworks. Fully proficient in leading creative pipelines and collaborating directly with development teams to ensure functional aesthetic perfection from wireframe to release." data-lang-zh="我的跨职能专业知识涵盖移动应用程序、游戏用户界面、视觉营销系统和完整的品牌框架。完全胜任领导创意工作流程的工作，并能与开发团队直接协作，确保从线框图到发布的完整功能性美学完美。">
+                            My cross-functional expertise spans mobile applications, gaming user interfaces, visual marketing systems, and complete branding frameworks. Fully proficient in leading creative pipelines and collaborating directly with development teams to ensure functional aesthetic perfection from wireframe to release.
+                        </p>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-stone-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div class="font-mono text-xs">
+                            <span class="text-stone-400 uppercase block" data-lang-en="core philosophy" data-lang-zh="核心设计哲学">core philosophy</span>
+                            <span class="font-bold text-grunge-black" data-lang-en="IMPACT OVER STATIC COMPLIANCE" data-lang-zh="以影响力颠覆墨守成规">IMPACT OVER STATIC COMPLIANCE</span>
+                        </div>
+                        <div class="px-4 py-2 bg-grunge-black text-grunge-white text-xs font-bold uppercase rounded">
+                            <span data-lang-en="YEARS IN FIELD: 15+" data-lang-zh="执业年限: 15+ 年">YEARS IN FIELD: 15+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: WHAT I DESIGN (The Bento Box Grid - Powered by Replaceable Config Data) -->
+    <section id="services" class="relative min-h-screen w-full bg-grunge-black py-24 px-6 md:px-12 lg:px-20 overflow-hidden">
+        <div class="absolute inset-0 grid-pattern-dark pointer-events-none opacity-30 z-0"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            
+            <!-- Replaceable Header Banner for Section 3 (image_8e423d.jpg) -->
+            <div class="relative w-full mb-10">
+                <img src="./image_8e423d.jpg" alt="What I Design Capabilities Grid" id="image_8e423d-img" class="w-full h-auto max-h-48 object-cover hidden rounded border border-stone-800" onload="this.classList.remove('hidden');" onerror="this.remove();">
+            </div>
+
+            <!-- Standard Section Header -->
+            <div class="mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                <div>
+                    <span class="font-mono text-grunge-red uppercase tracking-widest text-sm font-bold block mb-2">// CAPABILITIES INDEX</span>
+                    <h2 class="font-syne text-4xl md:text-7xl font-black text-white uppercase select-none leading-none">
+                        <span data-lang-en="WHAT I" data-lang-zh="设计">WHAT I</span><br>
+                        <span class="text-grunge-red bg-grunge-white text-grunge-black px-4 transform rotate-1 inline-block" data-lang-en="DESIGN" data-lang-zh="范畴">DESIGN</span>
+                    </h2>
+                </div>
+                <div class="max-w-md text-stone-400 font-mono text-sm leading-relaxed border-l-2 border-grunge-red pl-4">
+                    <p data-lang-en="A rigorous categorization of modern design disciplines. Every grid node is designed with structural elegance combined with a digital punk aesthetic." data-lang-zh="现代设计学科的严格分类。每一个网络节点都经过精心策划，融合了结构上的优雅与数字朋克的美学底蕴。">
+                        A rigorous categorization of modern design disciplines. Every grid node is designed with structural elegance combined with a digital punk aesthetic.
+                    </p>
+                </div>
+            </div>
+
+            <!-- THE DYNAMIC BENTO BOX GRID LAYOUT -->
+            <div id="bento-grid-container" class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+                <!-- Dynamically Populated by JavaScript Array -->
+            </div>
+
+            <!-- TOOLS & SYSTEMS SECTION -->
+            <div class="mt-20 pt-16 border-t border-stone-800">
+                <div class="flex flex-col lg:flex-row items-stretch gap-12">
+                    
+                    <div class="w-full lg:w-1/3 flex flex-col justify-between">
+                        <div>
+                            <span class="font-mono text-grunge-red text-xs uppercase tracking-widest block mb-2">// TECHNICAL PIPELINE</span>
+                            <h3 class="font-syne text-3xl font-black text-white uppercase mb-4" data-lang-en="TOOLS & OPERATIONS" data-lang-zh="技术底座与运营工具">TOOLS & OPERATIONS</h3>
+                        </div>
+                        <div class="bg-white p-3 rounded max-w-[200px] mt-6 flex flex-col items-center select-none">
+                            <div class="w-full h-8 flex items-stretch">
+                                <span class="bg-black flex-grow mr-0.5"></span>
+                                <span class="bg-black w-[1px] mr-0.5"></span>
+                                <span class="bg-black w-2 mr-0.5"></span>
+                                <span class="bg-black w-1 mr-0.5"></span>
+                                <span class="bg-black flex-grow mr-0.5"></span>
+                            </div>
+                            <span class="font-mono text-[8px] text-grunge-black font-bold tracking-widest mt-1">BUILT_IN_INDONESIA_2026</span>
+                        </div>
+                    </div>
+
+                    <div class="w-full lg:w-2/3 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <div class="bg-stone-900/40 border border-stone-800 p-4 rounded flex items-center gap-3 hover:border-grunge-red transition-all group">
+                            <i class="fa-brands fa-figma text-2xl text-purple-500 group-hover:scale-110 transition-transform"></i>
+                            <div><h4 class="font-bold text-sm text-white">Figma</h4><p class="text-[10px] text-stone-500">Interface Arch</p></div>
+                        </div>
+                        <div class="bg-stone-900/40 border border-stone-800 p-4 rounded flex items-center gap-3 hover:border-grunge-red transition-all group">
+                            <i class="fa-solid fa-palette text-2xl text-blue-400 group-hover:scale-110 transition-transform"></i>
+                            <div><h4 class="font-bold text-sm text-white">Photoshop</h4><p class="text-[10px] text-stone-500">Raster Masterwork</p></div>
+                        </div>
+                        <div class="bg-stone-900/40 border border-stone-800 p-4 rounded flex items-center gap-3 hover:border-grunge-red transition-all group">
+                            <i class="fa-solid fa-pen-nib text-2xl text-orange-400 group-hover:scale-110 transition-transform"></i>
+                            <div><h4 class="font-bold text-sm text-white">Illustrator</h4><p class="text-[10px] text-stone-500">Scalable Vector</p></div>
+                        </div>
+                        <div class="bg-stone-900/40 border border-stone-800 p-4 rounded flex items-center gap-3 hover:border-grunge-red transition-all group">
+                            <i class="fa-solid fa-film text-2xl text-indigo-400 group-hover:scale-110 transition-transform"></i>
+                            <div><h4 class="font-bold text-sm text-white">After Effects</h4><p class="text-[10px] text-stone-500">Motion Engine</p></div>
+                        </div>
+                        <div class="bg-stone-900/40 border border-stone-800 p-4 rounded flex items-center gap-3 hover:border-grunge-red transition-all group">
+                            <i class="fa-solid fa-cubes-split text-2xl text-amber-500 group-hover:scale-110 transition-transform"></i>
+                            <div><h4 class="font-bold text-sm text-white">Blender</h4><p class="text-[10px] text-stone-500">3D Asset Modeler</p></div>
+                        </div>
+                        <div class="bg-stone-900/40 border border-stone-800 p-4 rounded flex items-center gap-3 hover:border-grunge-red transition-all group">
+                            <i class="fa-solid fa-note-sticky text-2xl text-stone-300 group-hover:scale-110 transition-transform"></i>
+                            <div><h4 class="font-bold text-sm text-white">Notion</h4><p class="text-[10px] text-stone-500">Project Operations</p></div>
+                        </div>
+                        <div class="bg-stone-900/40 border border-stone-800 p-4 rounded flex items-center gap-3 hover:border-grunge-red transition-all group">
+                            <i class="fa-solid fa-clapperboard text-2xl text-cyan-400 group-hover:scale-110 transition-transform"></i>
+                            <div><h4 class="font-bold text-sm text-white">CapCut & Pro</h4><p class="text-[10px] text-stone-500">Media Editing</p></div>
+                        </div>
+                        <div class="bg-stone-900/40 border border-stone-800 p-4 rounded flex items-center gap-3 hover:border-grunge-red transition-all group">
+                            <i class="fa-solid fa-network-wired text-2xl text-green-400 group-hover:scale-110 transition-transform"></i>
+                            <div><h4 class="font-bold text-sm text-white">Collaboration</h4><p class="text-[10px] text-stone-500">Agile Workflow</p></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 4: DIRECT CONNECTS / FOOTER -->
+    <section id="contact" class="relative bg-grunge-white text-grunge-black py-20 px-6 md:px-12 lg:px-20 border-t-8 border-grunge-red overflow-hidden">
+        <div class="absolute left-0 bottom-0 opacity-[0.03] select-none pointer-events-none">
+            <h1 class="font-syne text-[24vw] uppercase font-black text-grunge-black leading-none">CONTACT</h1>
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+                
+                <div class="lg:col-span-5 flex flex-col justify-between">
+                    <div>
+                        <span class="font-mono text-grunge-red text-sm font-bold block mb-2 uppercase">// COMMENCE SYNERGY</span>
+                        <h2 class="font-syne text-4xl lg:text-6xl font-black uppercase text-grunge-black tracking-tight leading-none mb-6">
+                            <span data-lang-en="LET'S FORGE" data-lang-zh="共同打造">LET'S FORGE</span><br>
+                            <span class="text-grunge-blue" data-lang-en="GREATNESS." data-lang-zh="非凡杰作。">GREATNESS.</span>
+                        </h2>
+                        <p class="text-stone-600 font-mono text-sm leading-relaxed mb-6" data-lang-en="Seeking high-performance design pipelines, custom digital architectures, or strategic brand counseling? Shoot an dispatch below." data-lang-zh="正在寻找高性能的设计流程、定制的数字架构还是战略品牌咨询？请在下方发送邮件。">
+                            Seeking high-performance design pipelines, custom digital architectures, or strategic brand counseling? Shoot an dispatch below.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <a href="mailto:lengkongandrew@gmail.com" class="flex items-center gap-3 bg-grunge-black text-grunge-white p-4 rounded hover:bg-grunge-red transition-colors duration-300 shadow-lg">
+                            <i class="fa-solid fa-envelope text-xl"></i>
+                            <div>
+                                <p class="text-[10px] text-stone-400 font-mono uppercase">Official Email Dispatch</p>
+                                <p class="font-bold text-sm">lengkongandrew@gmail.com</p>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/6285796400320" target="_blank" class="flex items-center gap-3 bg-emerald-800 text-white p-4 rounded hover:bg-emerald-700 transition-colors duration-300 shadow-lg">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <div>
+                                <p class="text-[10px] text-emerald-300 font-mono uppercase">WhatsApp Rapid Response</p>
+                                <p class="font-bold text-sm">+62 857 9640 0320</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-white border-4 border-grunge-black p-8 shadow-2xl relative">
+                    <div class="absolute -top-3 -right-3 bg-grunge-red text-white font-mono text-[9px] px-2 py-1 transform rotate-6 font-bold uppercase tracking-widest shadow">
+                        ID_GATEWAY
+                    </div>
+
+                    <h3 class="font-syne text-xl font-black text-grunge-black uppercase mb-6 pb-2 border-b border-stone-200" data-lang-en="TRANSMIT MESSAGE IN REALTIME" data-lang-zh="实时发送咨询讯息">TRANSMIT MESSAGE IN REALTIME</h3>
+                    
+                    <form onsubmit="handleQuerySubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block font-mono text-xs uppercase text-stone-500 mb-1" data-lang-en="Your Name" data-lang-zh="您的姓名">Your Name</label>
+                                <input type="text" required id="queryName" class="w-full bg-stone-50 border-2 border-grunge-black p-3 text-sm font-space focus:outline-none focus:ring-2 focus:ring-grunge-red">
+                            </div>
+                            <div>
+                                <label class="block font-mono text-xs uppercase text-stone-500 mb-1" data-lang-en="Your Email" data-lang-zh="电子邮箱">Your Email</label>
+                                <input type="email" required id="queryEmail" class="w-full bg-stone-50 border-2 border-grunge-black p-3 text-sm font-space focus:outline-none focus:ring-2 focus:ring-grunge-red">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block font-mono text-xs uppercase text-stone-500 mb-1" data-lang-en="Project Scope Inquiry" data-lang-zh="您的咨询内容">Project Scope Inquiry</label>
+                            <textarea required id="queryMessage" rows="4" class="w-full bg-stone-50 border-2 border-grunge-black p-3 text-sm font-space focus:outline-none focus:ring-2 focus:ring-grunge-red"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-grunge-black text-grunge-white font-syne font-black uppercase text-sm p-4 hover:bg-grunge-red hover:text-white transition-colors flex items-center justify-center gap-2 shadow-lg">
+                            <span data-lang-en="TRANSMIT SECURE DATA" data-lang-zh="发送安全数据">TRANSMIT SECURE DATA</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+
+                    <div id="querySuccessMessage" class="hidden absolute inset-0 bg-white/95 backdrop-blur-sm z-30 flex flex-col justify-center items-center text-center p-8 transition-opacity duration-300">
+                        <i class="fa-solid fa-circle-check text-6xl text-emerald-600 mb-4 animate-bounce"></i>
+                        <h4 class="font-syne text-2xl font-black text-grunge-black uppercase mb-2" data-lang-en="TRANSMISSION SECURED" data-lang-zh="讯息发送成功">TRANSMISSION SECURED</h4>
+                        <p class="text-sm font-mono text-stone-500 max-w-md" data-lang-en="Andrew has received your message pipeline. Expect dispatch back within 12 business hours." data-lang-zh="安德鲁已收到您的系统联络信息。请在 12 工作小时内期待答复邮件。">Andrew has received your message pipeline. Expect dispatch back within 12 business hours.</p>
+                        <button onclick="resetInquiryForm()" class="mt-6 px-4 py-2 bg-grunge-black text-white text-xs font-mono uppercase tracking-widest hover:bg-grunge-red transition-colors">
+                            <span data-lang-en="SEND ANOTHER INQUIRY" data-lang-zh="重新撰写发送">SEND ANOTHER INQUIRY</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-20 pt-10 border-t border-stone-200 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <p class="font-syne text-lg font-black text-grunge-black uppercase tracking-tighter">ANDREW LENGKONG</p>
+                    <p class="text-xs font-mono text-stone-500" data-lang-en="© 2026 Andrew Lengkong Studio. Built using high fidelity CSS-paradigms." data-lang-zh="© 2026 安德鲁工作室。采用高精度CSS体系精制。">© 2026 Andrew Lengkong Studio. Built using high fidelity CSS-paradigms.</p>
+                </div>
+                <div class="flex items-center gap-6 text-xl text-grunge-black">
+                    <a href="https://behance.net/andrewlengkong" target="_blank" class="hover:text-grunge-red transition-colors"><i class="fa-brands fa-behance"></i></a>
+                    <a href="https://linkedin.com/in/lengkongandrew/" target="_blank" class="hover:text-grunge-red transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://wa.me/6285796400320" target="_blank" class="hover:text-grunge-red transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JS INTERACTIONS & ANIMATION CODE -->
+    <script>
+        // CONFIGURABLE CAPABILITIES DATA (Easy to update and edit!)
+        const servicesData = [
+            {
+                num: "01",
+                id: "uiux",
+                colSpan: "md:col-span-7",
+                title_en: "UI/UX DESIGN & PRODUCT STRATEGY",
+                title_zh: "UI/UX设计与产品策略",
+                desc_en: "Specialized in building scalable, accessible, and intuitive interactive interfaces. Full stack execution from user psychology research to custom wireframing systems, visual component libraries, and functional prototypes.",
+                desc_zh: "专注于构建可扩展、易于访问且直观的交互界面。涵盖从用户心理研究到自定义线框图系统、视觉组件库及功能性原型的全栈执行。",
+                skills_en: ["UI/UX Design", "Web & Mobile App", "Design System", "User Research", "Wireframing & Prototyping"],
+                skills_zh: ["UI/UX 设计", "网页与移动应用", "设计系统", "用户研究", "线框图与原型设计"],
+                badge: "UI_UX_CORE",
+                extra_en: "INDONESIAN TRAVEL GUIDE WEBAPP",
+                extra_zh: "印尼旅游指南应用"
+            },
+            {
+                num: "02",
+                id: "social",
+                colSpan: "md:col-span-5",
+                title_en: "SOCIAL MEDIA & PUBLICATION",
+                title_zh: "社交媒体与出版物",
+                desc_en: "Generating massive viral traction using cohesive digital marketing pipelines. High-profile graphic setups for shopping complexes, promotional campaigns, editorial print layouts, and rich infographics.",
+                desc_zh: "利用高内聚力的数字营销管线，生成海量的病毒式引流。为大型购物中心、促销战役、社论版面及丰富信息图提供高瞩目的平面创意。",
+                skills_en: ["Social Media Content", "Digital Campaign", "Editorial Design", "Infographic", "Presentation Design"],
+                skills_zh: ["社交媒体内容", "数字营销活动", "编辑社论设计", "数据信息图表", "商业演示设计"],
+                badge: "MKT_MEDIA",
+                extra_en: "MANADO TOWN SQUARE CAMPAIGN",
+                extra_zh: "万鸦老城市广场推广案"
+            },
+            {
+                num: "03",
+                id: "esport",
+                colSpan: "md:col-span-4",
+                title_en: "ESPORT BRANDING & GRAPHICS",
+                title_zh: "电竞品牌与视觉包装",
+                desc_en: "High-adrenaline team logo sets, tournament marketing layouts, cyberpunk stream layouts, overlays, and aggressive visual packages built specifically for modern pro gaming leagues.",
+                desc_zh: "专为现代职业游戏联赛打造的高肾上腺素车队徽标、锦标赛营销设计、赛博朋克流布局、覆盖图及侵略性的视觉包装。",
+                skills_en: ["Esports Visual Identity", "Team Branding", "Tournament & Event", "Player Highlight", "Esports Graphics"],
+                skills_zh: ["电子竞技视觉标识", "战队品牌定制", "赛事活动包装", "选手高光栏目", "电竞专属图件"],
+                badge: "ESPORTS",
+                extra_en: "TEAM SAIYAN IDENTITY",
+                extra_zh: "赛亚人战队视觉体系"
+            },
+            {
+                num: "04",
+                id: "branding",
+                colSpan: "md:col-span-4",
+                title_en: "BRANDING & VISUAL SYSTEM",
+                title_zh: "品牌设计与视觉系统",
+                desc_en: "Fostering deep-seated brand recognition. Forging powerful logos, strict design guidelines, corporate business collateral, and premium tangible packaging designs.",
+                desc_zh: "培育深厚的品牌认知度。铸造强大的徽标、严格的设计指南、公司商务间接材料以及高级的可触知包装设计。",
+                skills_en: ["Brand Identity", "Logo Design", "Brand System", "Packaging Design", "Brand Guidelines"],
+                skills_zh: ["品牌视觉识别", "标识徽标设计", "品牌生态系统", "包装结构设计", "品牌使用规范"],
+                badge: "IDENTITY",
+                extra_en: "CORPORATE SYSTEMS ARCH",
+                extra_zh: "企业机构系统架构"
+            },
+            {
+                num: "05",
+                id: "interactive",
+                colSpan: "md:col-span-4",
+                title_en: "GAME UI & MOTION ASSETS",
+                title_zh: "游戏UI与动态资产",
+                desc_en: "Constructing immersive play states. Bespoke mobile gaming asset files, custom UI systems, character select canvases, rich interactive media files, and sleek motion design.",
+                desc_zh: "构建身临其境的游戏状态。定制的移动端游戏资产档案、通用的UI系统、人物选择画布、富交互媒体以及平滑的运动设计。",
+                skills_en: ["Game UI/UX", "Game Asset", "Character Design", "Interactive Media", "Motion & Animation"],
+                skills_zh: ["游戏用户界面", "游戏美术资产", "游戏角色设计", "交互数字媒体", "动态图形与动画"],
+                badge: "INTERACTIVE",
+                extra_en: "ENGINE STATE: ACTIVE_3D",
+                extra_zh: "渲染引擎：活跃3D模式"
+            }
+        ];
+
+        // RENDER WHAT I DESIGN BENTO GRID DYNAMICALLY
+        function renderBentoGrid() {
+            const container = document.getElementById('bento-grid-container');
+            container.innerHTML = ''; // Clear container
+
+            servicesData.forEach(service => {
+                const isEnglish = currentLanguage === 'en';
+                const title = isEnglish ? service.title_en : service.title_zh;
+                const desc = isEnglish ? service.desc_en : service.desc_zh;
+                const skills = isEnglish ? service.skills_en : service.skills_zh;
+                const extra = isEnglish ? service.extra_en : service.extra_zh;
+
+                // Create individual bento card node
+                const card = document.createElement('div');
+                card.className = `${service.colSpan} bg-[#1c1c1c] border border-stone-800 p-8 rounded shadow-xl hover:border-grunge-red transition-all duration-300 relative overflow-hidden group flex flex-col justify-between`;
+                
+                // Construct Skills HTML lists
+                let skillsHTML = '';
+                skills.forEach(skill => {
+                    skillsHTML += `
+                        <li class="flex items-center gap-2 text-stone-300 font-mono text-xs">
+                            <span class="w-1.5 h-1.5 bg-grunge-red rounded-full"></span>
+                            <span>${skill}</span>
+                        </li>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="font-syne text-3xl font-black text-grunge-red">${service.num}</span>
+                            <span class="font-mono text-[10px] bg-stone-800 text-stone-400 px-2 py-0.5 rounded">${service.badge}</span>
+                        </div>
+                        <h3 class="font-syne text-2xl font-black text-white uppercase mb-4 tracking-tight">${title}</h3>
+                        <p class="text-stone-400 text-sm mb-6 leading-relaxed">${desc}</p>
+                        
+                        <!-- Dynamic Capability Lists -->
+                        <div class="border-t border-dashed border-stone-800 pt-4 mb-6">
+                            <p class="text-[10px] uppercase font-mono text-grunge-red tracking-wider mb-3">// Focus Capabilities</p>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                ${skillsHTML}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Bottom Case Badge / Extra Context -->
+                    <div class="bg-black/40 border border-white/5 p-3 rounded-lg flex items-center justify-between mt-4 relative overflow-hidden">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                            <span class="font-mono text-[10px] text-stone-300 uppercase tracking-widest">${extra}</span>
+                        </div>
+                        <span class="text-stone-700 font-syne text-2xl font-black pointer-events-none select-none uppercase">${service.id}</span>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // Custom Language state management
+        let currentLanguage = 'en';
+
+        function toggleLanguage(lang) {
+            currentLanguage = lang;
+            
+            // Switch Language Buttons Active State
+            const btnEn = document.getElementById('langBtn-en');
+            const btnZh = document.getElementById('langBtn-zh');
+
+            if (lang === 'en') {
+                btnEn.classList.add('bg-grunge-red', 'text-white');
+                btnEn.classList.remove('text-grunge-white/60');
+                btnZh.classList.add('text-grunge-white/60');
+                btnZh.classList.remove('bg-grunge-red', 'text-white');
+            } else {
+                btnZh.classList.add('bg-grunge-red', 'text-white');
+                btnZh.classList.remove('text-grunge-white/60');
+                btnEn.classList.add('text-grunge-white/60');
+                btnEn.classList.remove('bg-grunge-red', 'text-white');
+            }
+
+            // Re-render bento grid using language context
+            renderBentoGrid();
+
+            // Iterate over all element nodes with translation tags
+            const translationElements = document.querySelectorAll('[data-lang-en]');
+            translationElements.forEach(el => {
+                if (lang === 'en') {
+                    el.textContent = el.getAttribute('data-lang-en');
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = el.getAttribute('data-lang-en');
+                    }
+                } else {
+                    el.textContent = el.getAttribute('data-lang-zh');
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = el.getAttribute('data-lang-zh');
+                    }
+                }
+            });
+        }
+
+        // Custom Cursor Movement with high-performance RAF
+        const cursor = document.getElementById('customCursor');
+        const cursorDot = document.getElementById('customCursorDot');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+        });
+
+        function animateCursor() {
+            let dx = mouseX - cursorX;
+            let dy = mouseY - cursorY;
+            
+            cursorX += dx * 0.15;
+            cursorY += dy * 0.15;
+            
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Mouse Hover Expansion for Interactive Anchors
+        const interactiveSelectors = 'a, button, input, textarea, [role="button"]';
+        document.querySelectorAll(interactiveSelectors).forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                cursor.style.width = '35px';
+                cursor.style.height = '35px';
+                cursor.style.backgroundColor = 'rgba(209, 45, 45, 0.4)';
+            });
+            item.addEventListener('mouseleave', () => {
+                cursor.style.width = '20px';
+                cursor.style.height = '20px';
+                cursor.style.backgroundColor = 'rgba(209, 45, 45, 0.2)';
+            });
+        });
+
+        // Query Dispatch Form Actions
+        function handleQuerySubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const successOverlay = document.getElementById('querySuccessMessage');
+            
+            successOverlay.classList.remove('hidden');
+            successOverlay.classList.add('flex');
+            form.reset();
+        }
+
+        function resetInquiryForm() {
+            const successOverlay = document.getElementById('querySuccessMessage');
+            successOverlay.classList.add('hidden');
+            successOverlay.classList.remove('flex');
+        }
+
+        // GSAP Elite Scroll & Entrance Animations on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Initial render of capabilities grid
+            renderBentoGrid();
+
+            // Register ScrollTrigger
+            gsap.registerPlugin(ScrollTrigger);
+
+            const entranceTl = gsap.timeline();
+
+            entranceTl.from('header', {
+                y: -50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+
+            entranceTl.from('#leftHeroColumn', {
+                scale: 1.1,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power2.out'
+            }, '-=0.5');
+
+            entranceTl.from('#centerHeroColumn', {
+                y: 100,
+                opacity: 0,
+                duration: 1.2,
+                ease: 'power3.out'
+            }, '-=0.6');
+
+            entranceTl.from('#rightHeroColumn', {
+                x: 50,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power2.out'
+            }, '-=0.8');
+
+            entranceTl.from('#navigationDock', {
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power2.out'
+            }, '-=0.4');
+
+            // Notebook & Summary Box Scroll trigger
+            gsap.from('#about .lined-paper', {
+                scrollTrigger: {
+                    trigger: '#about',
+                    start: 'top 80%',
+                    end: 'top 40%',
+                    scrub: true
+                },
+                rotation: -3,
+                x: -30,
+                opacity: 0.9,
+                duration: 1
+            });
+
+            gsap.from('#about .lg\\:col-span-7', {
+                scrollTrigger: {
+                    trigger: '#about',
+                    start: 'top 70%',
+                    end: 'top 30%',
+                    scrub: true
+                },
+                rotation: 3,
+                x: 30,
+                opacity: 0.9,
+                duration: 1
+            });
+
+            // Bento Boxes Reveal Trigger
+            gsap.from('#services #bento-grid-container > div', {
+                scrollTrigger: {
+                    trigger: '#services',
+                    start: 'top 60%',
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.12,
+                ease: 'power2.out'
+            });
+        });
+    </script>
+</body>
+</html>
