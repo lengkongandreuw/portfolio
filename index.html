@@ -249,107 +249,62 @@ class AndrewLengkong {
             </div>
         </div>
 
-        <!-- HERO MAIN WORKSPACE -->
-        <div class="relative w-full z-10 flex flex-col md:flex-row items-center justify-between px-6 md:px-12 lg:px-20 py-12 md:py-0 flex-grow min-h-screen">
+        <!-- HERO MAIN WORKSPACE (Poster Composition Layout) -->
+        <div class="relative w-full flex-grow min-h-screen z-10 overflow-hidden">
             
-            <!-- LEFT COLUMN: headlinecover.png / Styled Typography fallback -->
-            <div class="w-full md:w-[40%] flex flex-col items-start text-grunge-black justify-center z-10 py-6 md:py-0" id="leftHeroColumn">
+            <!-- RIGHT LAYER: nama.png (Cutout text, goes behind model) -->
+            <div class="absolute top-[15%] md:top-[15%] right-[-5%] md:right-[2%] z-[15] w-[90%] md:w-[50%] pointer-events-none" id="rightHeroColumn">
+                <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/nama.png" alt="Andrew Lengkong" class="w-full h-auto drop-shadow-2xl">
+            </div>
+
+            <!-- CENTER LAYER: model1.png (Free-standing cutout) -->
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-[25] w-full max-w-[800px] pointer-events-none flex justify-center items-end" id="centerHeroImage">
+                <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/model1.png" alt="Andrew Lengkong Portrait" class="w-full h-auto object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] max-h-[85vh]">
+            </div>
+
+            <!-- LEFT LAYER: headlinecover.png -->
+            <div class="absolute top-[20%] md:top-[25%] left-[5%] md:left-[8%] z-[30] w-[85%] md:w-[35%] flex flex-col items-start" id="leftHeroColumn">
+                <!-- Distressed Red Badge -->
+                <div class="inline-block transform -rotate-2 mb-4 px-3 py-1 bg-grunge-red text-white font-mono text-xs font-bold tracking-widest uppercase rounded shadow-lg animate-bounce">
+                    <i class="fa-solid fa-bolt mr-1"></i> PORTFOLIO EDITION 2026
+                </div>
+
                 <!-- Replaceable Headline Image -->
-                <div class="relative mb-4">
-                    <img src="./headlinecover.png" alt="Creative Multimedia Designer Headline" id="headlinecover-img" class="max-w-full h-auto hidden" onload="this.classList.remove('hidden'); document.getElementById('headlinecover-fallback').classList.add('hidden');" onerror="this.remove();">
+                <div class="relative mb-6 w-full">
+                    <img src="./headlinecover.png" alt="Creative Multimedia Designer Headline" id="headlinecover-img" class="max-w-full h-auto hidden drop-shadow-xl" onload="this.classList.remove('hidden'); document.getElementById('headlinecover-fallback').classList.add('hidden');" onerror="this.remove();">
                 </div>
 
                 <!-- Fallback typography block if headlinecover.png is missing -->
-                <div id="headlinecover-fallback" class="bg-transparent rounded-lg relative">
-                    <!-- Distressed Red Badge -->
-                    <div class="inline-block transform -rotate-2 mb-6 px-3 py-1 bg-grunge-red text-white font-mono text-xs font-bold tracking-widest uppercase rounded shadow-lg animate-bounce">
-                        <i class="fa-solid fa-bolt mr-1"></i> PORTFOLIO EDITION 2026
-                    </div>
-                    <h2 class="font-syne text-4xl lg:text-6xl font-black leading-tight tracking-tighter text-grunge-black uppercase select-none">
-                        <span class="block text-grunge-black" data-lang-en="CREATIVE" data-lang-zh="极具创意">CREATIVE</span>
-                        <span class="block bg-grunge-black text-grunge-white px-2 py-1 transform rotate-1 inline-block" data-lang-en="MULTIMEDIA" data-lang-zh="多媒体">MULTIMEDIA</span>
-                        <span class="block text-grunge-black font-editorial italic normal-case tracking-normal" data-lang-en="designer" data-lang-zh="设计师">designer</span>
+                <div id="headlinecover-fallback" class="bg-transparent rounded-lg relative mb-6">
+                    <h2 class="font-syne text-4xl lg:text-6xl font-black leading-tight tracking-tighter text-grunge-black uppercase select-none drop-shadow-md">
+                        <span class="block bg-grunge-black text-white px-2 py-1 transform -rotate-1 inline-block mb-1" data-lang-en="CREATIVE" data-lang-zh="极具创意">CREATIVE</span>
+                        <span class="block text-grunge-red bg-white px-2 py-1 transform rotate-1 inline-block border-2 border-grunge-red" data-lang-en="MULTIMEDIA" data-lang-zh="多媒体">MULTIMEDIA</span>
+                        <span class="block bg-grunge-black text-white px-2 py-1 transform -rotate-2 inline-block mt-1" data-lang-en="DESIGNER" data-lang-zh="设计师">DESIGNER</span>
                     </h2>
                 </div>
 
+                <div class="max-w-sm mb-6 text-sm font-space text-grunge-black bg-white/80 p-3 rounded shadow-md backdrop-blur-sm transform rotate-1">
+                    Designing impactful digital experiences that drive engagement, solve problems, and deliver real business value.
+                </div>
+
+                <!-- Signature -->
+                <p class="font-brush text-4xl text-grunge-red transform -rotate-3 select-none mb-4">
+                    Andrew Lengkong
+                </p>
+
                 <!-- Stylized Black Masking/Duct Tape with scrolling text -->
-                <div class="w-full mt-6 bg-grunge-black text-grunge-white py-2 px-3 transform -rotate-1 relative overflow-hidden shadow-lg border-y-2 border-grunge-white/20 select-none">
+                <div class="w-full bg-grunge-black text-grunge-white py-2 px-3 transform -rotate-1 relative overflow-hidden shadow-lg border-y-2 border-grunge-white/20 select-none max-w-sm">
                     <div class="flex overflow-hidden whitespace-nowrap">
                         <div class="inline-block animate-marquee uppercase font-mono text-xs tracking-widest">
                             <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="BASED IN MANADO, INDONESIA" data-lang-zh="驻于印度尼西亚万鸦老">BASED IN MANADO, INDONESIA</span>
                             <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="ESTABLISHED 1989" data-lang-zh="始于1989年">ESTABLISHED 1989</span>
-                            <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="15+ YEARS DESIGNING EXPERIENCE" data-lang-zh="15+ 年设计阅历">15+ YEARS DESIGNING EXPERIENCE</span>
                             <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="CODE IS DESIGN" data-lang-zh="代码即是设计">CODE IS DESIGN</span>
                         </div>
                         <div class="inline-block animate-marquee uppercase font-mono text-xs tracking-widest">
                             <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="BASED IN MANADO, INDONESIA" data-lang-zh="驻于印度尼西亚万鸦老">BASED IN MANADO, INDONESIA</span>
                             <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="ESTABLISHED 1989" data-lang-zh="始于1989年">ESTABLISHED 1989</span>
-                            <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="15+ YEARS DESIGNING EXPERIENCE" data-lang-zh="15+ 年设计阅历">15+ YEARS DESIGNING EXPERIENCE</span>
                             <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="CODE IS DESIGN" data-lang-zh="代码即是设计">CODE IS DESIGN</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CENTER COLUMN: model1.png / SVG Illustration Fallback -->
-            <div class="w-full md:w-[32%] flex justify-center items-center z-20 py-8 md:py-0 relative" id="centerHeroColumn">
-                <div class="relative w-64 h-96 md:w-72 md:h-[460px] bg-neutral-900 overflow-hidden shadow-2xl rounded transform hover:scale-105 transition-transform duration-500 border-4 border-grunge-white">
-                    
-                    <!-- Paper clip top -->
-                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 z-30 w-10 h-6 bg-stone-300 rounded-b-md border-x-2 border-b-2 border-stone-500 shadow-md"></div>
-
-                    <!-- Replaceable Model Portrait Image -->
-                    <img src="./model1.png" alt="Andrew Lengkong Portrait" id="model1-img" class="absolute inset-0 w-full h-full object-cover z-10 hidden" onload="this.classList.remove('hidden'); document.getElementById('model1-fallback').classList.add('hidden');" onerror="this.remove();">
-
-                    <!-- Fallback SVG Portrait if model1.jpg is missing -->
-                    <div id="model1-fallback" class="absolute inset-0 w-full h-full bg-gradient-to-t from-grunge-black to-[#232323] flex items-end justify-center">
-                        <svg viewBox="0 0 200 300" class="w-full h-full object-cover">
-                            <radialGradient id="studioGlow" cx="50%" cy="50%" r="50%">
-                                <stop offset="0%" stop-color="#D12D2D" stop-opacity="0.3"/>
-                                <stop offset="100%" stop-color="#000" stop-opacity="0"/>
-                            </radialGradient>
-                            <circle cx="100" cy="150" r="100" fill="url(#studioGlow)"/>
-                            <path d="M25 300 L55 240 L100 220 L145 240 L175 300 Z" fill="#0c0c0c"/>
-                            <path d="M85 224 L100 240 L115 224 L100 215 Z" fill="#f4f4f4"/>
-                            <path d="M96 238 L104 238 L106 280 L100 295 L94 280 Z" fill="#D12D2D"/>
-                            <path d="M75 120 C75 75, 125 75, 125 120 C125 150, 115 190, 100 190 Z" fill="#f0d0b0"/>
-                            <path d="M72 110 C70 90, 90 70, 128 80 C130 95, 122 110 Z" fill="#1c1c1c"/>
-                            <rect x="80" y="115" width="16" height="10" rx="2" fill="none" stroke="#000" stroke-width="2"/>
-                            <rect x="104" y="115" width="16" height="10" rx="2" fill="none" stroke="#000" stroke-width="2"/>
-                            <line x1="96" y1="120" x2="104" y2="120" stroke="#000" stroke-width="2"/>
-                            <path d="M10 210 L190 240 L180 255 L5 220 Z" fill="#D12D2D" opacity="0.8"/>
-                        </svg>
-                    </div>
-
-                    <div class="absolute bottom-4 left-4 right-4 bg-grunge-black/75 p-2 rounded border border-white/10 text-[9px] font-mono text-left opacity-90 z-20">
-                        <span class="text-green-400">// PORTFOLIO METADATA</span><br>
-                        OBJECT: MODEL1.JPG | LOCATION: ROOT/
-                    </div>
-                </div>
-            </div>
-
-            <!-- RIGHT COLUMN: nama.jpg / Custom Chalk Blackboard fallback -->
-            <div class="w-full md:w-[28%] flex flex-col items-start justify-center z-10 text-grunge-white py-6 md:py-0" id="rightHeroColumn">
-                <!-- Replaceable Name Image -->
-                <div class="relative w-full mb-4">
-                    <img src="./nama.jpg" alt="Andrew Lengkong Identity Name Card" id="nama-img" class="w-full h-auto hidden rounded shadow-2xl" onload="this.classList.remove('hidden'); document.getElementById('nama-fallback').classList.add('hidden');" onerror="this.remove();">
-                </div>
-
-                <!-- Fallback blackboard card if nama.jpg is missing -->
-                <div id="nama-fallback" class="bg-stone-900 border border-stone-800 p-6 rounded shadow-2xl relative w-full transform rotate-1 select-none">
-                    <div class="absolute -top-3 left-4 transform rotate-12 text-stone-400">
-                        <i class="fa-solid fa-paperclip text-2xl"></i>
-                    </div>
-                    <span class="font-mono text-[10px] uppercase text-grunge-red tracking-widest block mb-2">// BRAND IDENTITY EXCLUSIVE</span>
-                    <h1 class="font-syne text-3xl lg:text-5xl font-black tracking-tighter uppercase leading-none border-b border-grunge-white/10 pb-4 text-white">
-                        ANDREW<br>
-                        LENGKONG
-                    </h1>
-                    <p class="font-brush text-4xl text-grunge-red my-4 text-center transform -rotate-3">
-                        Andrew Lengkong
-                    </p>
-                    <div class="bg-black/90 rounded p-3 font-mono text-xs text-left border border-white/5 mt-4">
-                        <p class="text-[10px] text-green-400">{ "code": "fullstack_graphics" }</p>
                     </div>
                 </div>
             </div>
@@ -388,107 +343,127 @@ class AndrewLengkong {
         </div>
     </section>
 
-    <!-- SECTION 2: ABOUT ME (Lined Notebook vs Distressed Summary) -->
-    <section id="about" class="relative min-h-screen w-full bg-grunge-white text-grunge-black grid-pattern-light py-24 px-6 md:px-12 lg:px-20 flex flex-col justify-center overflow-hidden">
-        <div class="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+    <!-- SECTION 2: ABOUT ME (Dark Grunge / Chalkboard Layout) -->
+    <section id="about" class="relative min-h-screen w-full bg-grunge-black py-24 px-6 md:px-12 lg:px-20 flex flex-col justify-center overflow-hidden">
+        
+        <!-- Base Section 2 Background Image -->
+        <div class="absolute inset-0 w-full h-full pointer-events-none z-0">
+            <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/section2bg.png" alt="About Me Background" class="w-full h-full object-cover opacity-95">
+        </div>
+
+        <div class="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            <!-- LEFT COLUMN: Notebook Biodata -->
-            <div class="lg:col-span-5 flex flex-col justify-center transform -rotate-1">
-                <div class="bg-grunge-black text-white p-3 font-mono text-xs tracking-widest uppercase flex items-center justify-between rounded-t-md">
-                    <span><i class="fa-solid fa-circle-nodes mr-2"></i> BIOGRAPHICAL DOSSIER</span>
-                    <span class="text-grunge-red">ACTIVE.LOG</span>
+            <!-- LEFT COLUMN: About Me Header & Info List -->
+            <div class="lg:col-span-5 flex flex-col justify-center" id="about-left">
+                
+                <!-- Stylized Text Header matching image_8dc9bf.jpg -->
+                <div class="mb-10 transform -rotate-3 select-none">
+                    <h2 class="font-syne text-6xl md:text-7xl font-black uppercase tracking-tighter flex items-center gap-3">
+                        <span class="text-white drop-shadow-md">ABOUT</span> 
+                        <span class="text-grunge-red drop-shadow-md">ME</span>
+                    </h2>
+                    <!-- Red underline stroke -->
+                    <div class="w-64 h-1.5 bg-grunge-red mt-2 rounded opacity-90 box-shadow-lg"></div>
+                    <!-- Thin secondary underline -->
+                    <div class="w-72 h-[1px] bg-grunge-red mt-1 rounded opacity-50"></div>
                 </div>
 
-                <div class="lined-paper shadow-2xl border-x border-b border-stone-300/60 p-8 pt-12 rounded-b-md relative min-h-[450px] flex flex-col justify-between">
-                    <div class="absolute left-6 top-0 bottom-0 w-[2px] bg-red-400 opacity-40"></div>
-
-                    <div class="space-y-10 pl-6 z-10 font-mono text-sm">
-                        <div class="flex items-start justify-between border-b border-dashed border-stone-300/80 pb-1">
-                            <span class="text-stone-500 text-xs uppercase" data-lang-en="Profession" data-lang-zh="职业定位">Profession</span>
-                            <span class="font-bold text-grunge-black" data-lang-en="Experienced Full Stack Graphic Designer" data-lang-zh="资深全栈平面视觉设计师">Experienced Full Stack Graphic Designer</span>
+                <!-- Lined List Info (White text on dark bg) -->
+                <ul class="space-y-4 font-mono text-sm pr-4">
+                    <!-- Profession -->
+                    <li class="flex items-center gap-4 border-b border-stone-500/50 pb-3 group">
+                        <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-user text-xs"></i>
                         </div>
-                        <div class="flex items-start justify-between border-b border-dashed border-stone-300/80 pb-1">
-                            <span class="text-stone-500 text-xs uppercase" data-lang-en="Born Year" data-lang-zh="出生年份">Born Year</span>
-                            <span class="font-bold text-grunge-black">1989</span>
+                        <span class="text-stone-200 font-bold tracking-wide" data-lang-en="Experienced Full Stack Graphic Designer" data-lang-zh="资深全栈平面视觉设计师">Experienced Full Stack Graphic Designer</span>
+                    </li>
+                    <!-- Year Born -->
+                    <li class="flex items-center gap-4 border-b border-stone-500/50 pb-3 group">
+                        <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-regular fa-calendar text-xs"></i>
                         </div>
-                        <div class="flex items-start justify-between border-b border-dashed border-stone-300/80 pb-1">
-                            <span class="text-stone-500 text-xs uppercase" data-lang-en="Location" data-lang-zh="现居城市">Location</span>
-                            <span class="font-bold text-grunge-black flex items-center gap-1.5">
-                                <i class="fa-solid fa-map-pin text-grunge-red"></i> Manado, Indonesia
-                            </span>
+                        <span class="text-stone-200 tracking-wide">born in 1989</span>
+                    </li>
+                    <!-- Location -->
+                    <li class="flex items-center gap-4 border-b border-stone-500/50 pb-3 group">
+                        <div class="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-location-dot text-xs"></i>
                         </div>
-                        <div class="flex items-start justify-between border-b border-dashed border-stone-300/80 pb-1">
-                            <span class="text-stone-500 text-xs uppercase">E-Mail</span>
-                            <a href="mailto:lengkongandrew@gmail.com" class="font-bold text-grunge-blue underline hover:text-grunge-red transition-colors">
-                                lengkongandrew@gmail.com
-                            </a>
+                        <span class="text-stone-200 tracking-wide">live in Manado, Indonesia</span>
+                    </li>
+                    <!-- Email -->
+                    <li class="flex items-center gap-4 border-b border-stone-500/50 pb-3 group">
+                        <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-envelope text-xs"></i>
                         </div>
-                        <div class="flex items-start justify-between border-b border-dashed border-stone-300/80 pb-1">
-                            <span class="text-stone-500 text-xs uppercase">WhatsApp</span>
-                            <a href="https://wa.me/6285796400320" target="_blank" class="font-bold text-green-700 flex items-center gap-1 hover:underline">
-                                <i class="fa-brands fa-whatsapp"></i> +62 857 9640 0320
-                            </a>
+                        <a href="mailto:lengkongandrew@gmail.com" class="text-stone-200 tracking-wide hover:text-white transition-colors">lengkongandrew@gmail.com</a>
+                    </li>
+                    <!-- WhatsApp -->
+                    <li class="flex items-center gap-4 border-b border-stone-500/50 pb-3 group">
+                        <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
                         </div>
-                        <div class="flex items-start justify-between border-b border-dashed border-stone-300/80 pb-1">
-                            <span class="text-stone-500 text-xs uppercase">Behance</span>
-                            <a href="https://behance.net/andrewlengkong" target="_blank" class="font-bold text-grunge-blue hover:text-grunge-red transition-colors">
-                                behance.net/andrewlengkong
-                            </a>
+                        <span class="text-stone-200 tracking-wide flex gap-2">
+                            <span class="text-stone-400">fast response via whatsapp</span>
+                            <a href="https://wa.me/6285796400320" target="_blank" class="hover:text-white transition-colors">+62 857 9640 0320</a>
+                        </span>
+                    </li>
+                    <!-- Behance -->
+                    <li class="flex items-center gap-4 border-b border-stone-500/50 pb-3 group">
+                        <div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg font-bold font-syne text-sm group-hover:scale-110 transition-transform">
+                            Bē
                         </div>
-                        <div class="flex items-start justify-between border-b border-dashed border-stone-300/80 pb-1">
-                            <span class="text-stone-500 text-xs uppercase">LinkedIn</span>
-                            <a href="https://linkedin.com/in/lengkongandrew/" target="_blank" class="font-bold text-grunge-blue hover:text-grunge-red transition-colors">
-                                linkedin.com/in/lengkongandrew/
-                            </a>
+                        <a href="https://behance.net/andrewlengkong" target="_blank" class="text-blue-400 underline tracking-wide hover:text-blue-300 transition-colors">behance.net/andrewlengkong</a>
+                    </li>
+                    <!-- LinkedIn -->
+                    <li class="flex items-center gap-4 border-b border-stone-500/50 pb-3 group">
+                        <div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg font-bold font-syne text-sm group-hover:scale-110 transition-transform">
+                            in
                         </div>
-                    </div>
-
-                    <div class="mt-6 flex justify-end z-10 select-none opacity-80">
-                        <div class="border-4 border-double border-grunge-red/70 rounded-full px-4 py-2 transform rotate-12 font-syne text-xs text-grunge-red font-bold uppercase tracking-wider text-center">
-                            AUTHENTIC COPY<br>
-                            <span class="font-mono text-[9px] text-stone-500">OFFICIAL ARCHIVE</span>
-                        </div>
-                    </div>
-                </div>
+                        <a href="https://linkedin.com/in/lengkongandrew/" target="_blank" class="text-blue-400 underline tracking-wide hover:text-blue-300 transition-colors">linkedin.com/in/lengkongandrew/</a>
+                    </li>
+                </ul>
             </div>
 
-            <!-- RIGHT COLUMN: Distressed Summary Box -->
-            <div class="lg:col-span-7 flex flex-col justify-center relative">
-                <!-- Replaceable Header Image representing Section 2 Title (image_8eb9fe.jpg) -->
-                <div class="relative mb-2">
-                    <img src="./image_8eb9fe.jpg" alt="About Me Summary Banner" id="image_8eb9fe-img" class="w-full h-auto max-h-32 object-contain hidden mb-4" onload="this.classList.remove('hidden'); document.getElementById('image_8eb9fe-fallback').classList.add('hidden');" onerror="this.remove();">
-                </div>
-
-                <!-- Fallback blue painter tape header if image_8eb9fe.jpg is missing -->
-                <div id="image_8eb9fe-fallback" class="blue-tape inline-block self-start px-6 py-2.5 text-white font-syne font-black text-xl lg:text-3xl tracking-widest uppercase z-10 transform -rotate-2 select-none mb-4">
-                    <span data-lang-en="SUMMARY" data-lang-zh="个人自述">SUMMARY</span>
-                </div>
-
-                <!-- Summary Content -->
-                <div class="bg-white border-4 border-grunge-black p-8 md:p-12 shadow-2xl relative overflow-hidden flex flex-col justify-between">
-                    <div class="absolute top-4 left-4 transform -rotate-45 text-stone-400 select-none">
-                        <i class="fa-solid fa-paperclip text-3xl opacity-30"></i>
+            <!-- RIGHT COLUMN: Distressed Chalk Summary Box -->
+            <div class="lg:col-span-7 flex flex-col justify-center relative mt-12 lg:mt-0" id="about-right">
+                
+                <div class="relative w-full">
+                    <!-- Floating Paperclip Decoration -->
+                    <div class="absolute -top-12 left-1/4 transform rotate-45 text-stone-300/60 select-none z-0">
+                        <i class="fa-solid fa-paperclip text-4xl"></i>
                     </div>
 
-                    <div class="space-y-6 text-stone-800 text-base md:text-lg leading-relaxed font-space z-10 relative">
-                        <p class="font-bold border-l-4 border-grunge-red pl-4 py-1" data-lang-en="A graphic and digital product designer with over 15 years of industry experience, specializing in UI/UX, visual direction, and digital media production. Deeply passionate about transforming high-concept, complex ideas into exceptionally crisp, engaging, and high-impact digital experiences." data-lang-zh="拥有超过 15 年行业经验的资深平面及数字产品设计师，专注于 UI/UX、视觉方向和数字媒体制作。我满怀激情，致力于将高概念、复杂的创意转化为异常清晰、迷人且极具影响力的数字体验。">
-                            A graphic and digital product designer with over 15 years of industry experience, specializing in UI/UX, visual direction, and digital media production. Deeply passionate about transforming high-concept, complex ideas into exceptionally crisp, engaging, and high-impact digital experiences.
-                        </p>
-                        <p data-lang-en="My cross-functional expertise spans mobile applications, gaming user interfaces, visual marketing systems, and complete branding frameworks. Fully proficient in leading creative pipelines and collaborating directly with development teams to ensure functional aesthetic perfection from wireframe to release." data-lang-zh="我的跨职能专业知识涵盖移动应用程序、游戏用户界面、视觉营销系统和完整的品牌框架。完全胜任领导创意工作流程的工作，并能与开发团队直接协作，确保从线框图到发布的完整功能性美学完美。">
-                            My cross-functional expertise spans mobile applications, gaming user interfaces, visual marketing systems, and complete branding frameworks. Fully proficient in leading creative pipelines and collaborating directly with development teams to ensure functional aesthetic perfection from wireframe to release.
-                        </p>
+                    <!-- Blue Painter's Tape Title -->
+                    <div class="absolute -top-6 left-12 blue-tape px-6 py-2.5 text-white font-syne font-black text-xl lg:text-3xl tracking-widest uppercase z-20 transform -rotate-2 select-none shadow-lg border border-blue-400/20">
+                        <span data-lang-en="SUMMARY" data-lang-zh="个人自述">SUMMARY</span>
                     </div>
 
-                    <div class="mt-8 pt-6 border-t border-stone-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                        <div class="font-mono text-xs">
-                            <span class="text-stone-400 uppercase block" data-lang-en="core philosophy" data-lang-zh="核心设计哲学">core philosophy</span>
-                            <span class="font-bold text-grunge-black" data-lang-en="IMPACT OVER STATIC COMPLIANCE" data-lang-zh="以影响力颠覆墨守成规">IMPACT OVER STATIC COMPLIANCE</span>
+                    <!-- Binder Clip Hardware -->
+                    <div class="absolute -top-8 right-8 z-30 transform rotate-12 select-none drop-shadow-xl">
+                        <svg width="50" height="50" viewBox="0 0 100 100" fill="none">
+                            <rect x="35" y="40" width="30" height="35" rx="2" fill="#111" stroke="#fff" stroke-width="2"/>
+                            <path d="M50 10 C65 10, 70 25, 65 40 M50 10 C35 10, 30 25, 35 40" fill="none" stroke="#ddd" stroke-width="5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Main Summary Chalk-Box Container -->
+                    <div class="border-[3px] border-white/80 p-8 md:p-12 relative z-10 bg-black/20 backdrop-blur-[2px] shadow-2xl">
+                        
+                        <!-- Pseudo double border effect -->
+                        <div class="absolute inset-2 border border-white/30 transform rotate-1 pointer-events-none"></div>
+
+                        <div class="space-y-6 text-stone-200 text-base md:text-lg leading-relaxed font-space z-10 relative mt-6">
+                            <p data-lang-en="Designer with 15+ years of experience in UI/UX, visual design, and digital products. I design mobile apps, games, and marketing visuals." data-lang-zh="拥有超过 15 年行业经验的资深设计师，专注于 UI/UX、视觉设计和数字产品。我设计移动应用程序、游戏和营销视觉效果。">
+                                Designer with 15+ years of experience in UI/UX, visual design, and digital products. I design mobile apps, games, and marketing visuals.
+                            </p>
+                            <p data-lang-en="Strong in turning ideas into clear and engaging designs. Experienced in leading projects and working with cross-functional teams." data-lang-zh="善于将创意转化为清晰且引人入胜的设计。在领导项目以及与跨职能团队合作方面经验丰富。">
+                                Strong in turning ideas into clear and engaging designs. Experienced in leading projects and working with cross-functional teams.
+                            </p>
                         </div>
-                        <div class="px-4 py-2 bg-grunge-black text-grunge-white text-xs font-bold uppercase rounded">
-                            <span data-lang-en="YEARS IN FIELD: 15+" data-lang-zh="执业年限: 15+ 年">YEARS IN FIELD: 15+</span>
-                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -943,7 +918,7 @@ class AndrewLengkong {
                 ease: 'power2.out'
             }, '-=0.5');
 
-            entranceTl.from('#centerHeroColumn', {
+            entranceTl.from('#centerHeroImage', {
                 y: 100,
                 opacity: 0,
                 duration: 1.2,
@@ -964,30 +939,28 @@ class AndrewLengkong {
                 ease: 'power2.out'
             }, '-=0.4');
 
-            // Notebook & Summary Box Scroll trigger
-            gsap.from('#about .lined-paper', {
+            // Notebook & Summary Box Scroll trigger (Updated Selectors for Section 2)
+            gsap.from('#about-left', {
                 scrollTrigger: {
                     trigger: '#about',
                     start: 'top 80%',
                     end: 'top 40%',
                     scrub: true
                 },
-                rotation: -3,
-                x: -30,
-                opacity: 0.9,
+                x: -50,
+                opacity: 0,
                 duration: 1
             });
 
-            gsap.from('#about .lg\\:col-span-7', {
+            gsap.from('#about-right', {
                 scrollTrigger: {
                     trigger: '#about',
                     start: 'top 70%',
                     end: 'top 30%',
                     scrub: true
                 },
-                rotation: 3,
-                x: 30,
-                opacity: 0.9,
+                y: 50,
+                opacity: 0,
                 duration: 1
             });
 
