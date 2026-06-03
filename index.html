@@ -140,6 +140,39 @@
             background-size: 6px 100%;
             opacity: 0.3;
         }
+
+        /* BACKGROUND LOOP ANIMATION KEYFRAMES */
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+        .scanline-anim {
+            animation: scanline 10s linear infinite;
+        }
+
+        @keyframes subtle-float {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            50% { transform: translateY(-20px) rotate(8deg) scale(1.05); }
+        }
+        .float-anim {
+            animation: subtle-float 10s ease-in-out infinite;
+        }
+
+        @keyframes subtle-float-reverse {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1.05); }
+            50% { transform: translateY(15px) rotate(-12deg) scale(0.95); }
+        }
+        .float-anim-reverse {
+            animation: subtle-float-reverse 14s ease-in-out infinite;
+        }
+
+        @keyframes pulse-opacity {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.35; }
+        }
+        .pulse-halftone {
+            animation: pulse-opacity 6s ease-in-out infinite;
+        }
     </style>
 </head>
 <body class="bg-grunge-black text-grunge-white font-space overflow-x-hidden selection:bg-grunge-red selection:text-white">
@@ -188,11 +221,36 @@
         <!-- Background Layer Fallback -->
         <div id="portfoliobg-fallback" class="absolute inset-0 w-full h-full flex flex-col md:flex-row pointer-events-none z-0">
             <div class="w-full md:w-1/2 bg-grunge-white grid-pattern-light relative p-8 flex flex-col justify-between overflow-hidden">
-                <div class="absolute inset-0 halftone opacity-30"></div>
+                <div class="absolute inset-0 halftone pulse-halftone"></div>
                 <div class="absolute left-4 bottom-1/4 text-grunge-black/5 font-syne text-[12vw] leading-none select-none uppercase font-black">DESIGNER</div>
             </div>
             <div class="w-full md:w-1/2 bg-grunge-black grid-pattern-dark relative overflow-hidden flex flex-col justify-between p-8">
                 <div class="absolute inset-0 halftone-dark opacity-20"></div>
+            </div>
+        </div>
+
+        <!-- LOOP ANIMATION ELEMENTS IN HERO BACKGROUND -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-[1] select-none">
+            <!-- Moving scanline laser overlay -->
+            <div class="w-full h-[2px] bg-gradient-to-r from-transparent via-grunge-red/25 to-transparent absolute top-0 left-0 scanline-anim"></div>
+            
+            <!-- Hand-drawn vector blueprint crosshair 1 -->
+            <div class="absolute top-[25%] right-[12%] w-12 h-12 opacity-[0.18] float-anim hidden md:block">
+                <svg viewBox="0 0 100 100" class="stroke-grunge-red" stroke-width="4" fill="none">
+                    <line x1="50" y1="10" x2="50" y2="90" />
+                    <line x1="10" y1="50" x2="90" y2="50" />
+                    <circle cx="50" cy="50" r="28" />
+                    <rect x="35" y="35" width="30" height="30" />
+                </svg>
+            </div>
+
+            <!-- Hand-drawn vector blueprint geometry 2 -->
+            <div class="absolute bottom-[28%] left-[6%] w-16 h-16 opacity-[0.12] float-anim-reverse hidden md:block">
+                <svg viewBox="0 0 100 100" class="stroke-white" stroke-width="3" fill="none">
+                    <path d="M 15,15 L 85,85 M 85,15 L 15,85" />
+                    <circle cx="50" cy="50" r="40" stroke-dasharray="6 4" />
+                    <rect x="20" y="20" width="60" height="60" />
+                </svg>
             </div>
         </div>
 
@@ -403,7 +461,7 @@
                         <div class="absolute inset-2 border border-white/30 transform rotate-1 pointer-events-none"></div>
 
                         <div class="space-y-6 text-stone-200 text-base md:text-lg leading-relaxed font-space z-10 relative mt-6">
-                            <p data-lang-en="Designer with 15+ years of experience in UI/UX, visual design, and digital products. I design mobile apps, games, and marketing visuals." data-lang-zh="拥有超过 15 年行业经验的资深设计师，专注于 UI/UX、视觉设计 and 数字产品。我设计移动应用程序、游戏 and 营销视觉效果。">
+                            <p data-lang-en="Designer with 15+ years of experience in UI/UX, visual design, and digital products. I design mobile apps, games, and marketing visuals." data-lang-zh="拥有超过 15 年行业经验的资深设计师，专注于 UI/UX、视觉设计 and 数字产品。我设计 mobile 应用程序、游戏 and 营销视觉效果。">
                                 Designer with 15+ years of experience in UI/UX, visual design, and digital products. I design mobile apps, games, and marketing visuals.
                             </p>
                             <p data-lang-en="Strong in turning ideas into clear and engaging designs. Experienced in leading projects and working with cross-functional teams." data-lang-zh="善于将创意转化为清晰且引人入胜的设计。在领导项目以及与跨职能团队合作方面经验丰富。">
@@ -584,17 +642,19 @@
                             <i class="fa-solid fa-pen-nib text-2xl text-orange-400 group-hover:scale-110 transition-transform"></i>
                             <div><h4 class="font-bold text-sm text-white">Illustrator</h4><p class="text-[10px] text-stone-500">Scalable Vector</p></div>
                         </div>
+                        <!-- REPLACED AFTER EFFECTS WITH CANVA -->
                         <div class="bg-stone-900/40 border border-stone-800 p-4 rounded flex items-center gap-3 hover:border-grunge-red transition-all group">
-                            <i class="fa-solid fa-film text-2xl text-indigo-400 group-hover:scale-110 transition-transform"></i>
-                            <div><h4 class="font-bold text-sm text-white">After Effects</h4><p class="text-[10px] text-stone-500">Motion Engine</p></div>
+                            <i class="fa-solid fa-wand-magic-sparkles text-2xl text-teal-400 group-hover:scale-110 transition-transform"></i>
+                            <div><h4 class="font-bold text-sm text-white">Canva</h4><p class="text-[10px] text-stone-500">Rapid Layout Engine</p></div>
                         </div>
                         <div class="bg-stone-900/40 border border-stone-800 p-4 rounded flex items-center gap-3 hover:border-grunge-red transition-all group">
                             <i class="fa-solid fa-cubes-split text-2xl text-amber-500 group-hover:scale-110 transition-transform"></i>
                             <div><h4 class="font-bold text-sm text-white">Blender</h4><p class="text-[10px] text-stone-500">3D Asset Modeler</p></div>
                         </div>
+                        <!-- REPLACED NOTION WITH VARIOUS PM TOOLS -->
                         <div class="bg-stone-900/40 border border-stone-800 p-4 rounded flex items-center gap-3 hover:border-grunge-red transition-all group">
-                            <i class="fa-solid fa-note-sticky text-2xl text-stone-300 group-hover:scale-110 transition-transform"></i>
-                            <div><h4 class="font-bold text-sm text-white">Notion</h4><p class="text-[10px] text-stone-500">Project Operations</p></div>
+                            <i class="fa-solid fa-diagram-project text-2xl text-amber-500 group-hover:scale-110 transition-transform"></i>
+                            <div><h4 class="font-bold text-sm text-white">Various PM Tools</h4><p class="text-[10px] text-stone-500">Product & Team Ops</p></div>
                         </div>
                         <div class="bg-stone-900/40 border border-stone-800 p-4 rounded flex items-center gap-3 hover:border-grunge-red transition-all group">
                             <i class="fa-solid fa-clapperboard text-2xl text-cyan-400 group-hover:scale-110 transition-transform"></i>
@@ -663,7 +723,7 @@
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
-                            <span data-lang-en="Spearheaded high-conversion publishing strategies, social branding systems, and video compositing workflows." data-lang-zh="主导高转化率的出版发布战略、社交媒体品牌包装体系和视音频合成工作流程。">Spearheaded high-conversion publishing strategies, social branding systems, and video compositing workflows.</span>
+                            <span data-lang-en="Spearheaded high-conversion publishing strategies, social branding systems, and video compositing workflows." data-lang-zh="主导高转化率的出版发布战略、社交媒体品牌包装体系 and 视音频合成工作流程。">Spearheaded high-conversion publishing strategies, social branding systems, and video compositing workflows.</span>
                         </li>
                     </ul>
                 </div>
@@ -682,11 +742,11 @@
                     <ul class="space-y-3 font-space text-stone-300 text-sm">
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
-                            <span data-lang-en="Executed global sports media packages for audiences in the Philippines, including graphic assets for Indonesia Liga 1 and English Premier League matches." data-lang-zh="为菲律宾受众执行全球体育媒体视觉包，包括印度尼西亚甲级联赛和英超联赛比赛的创意资产。">Executed global sports media packages for audiences in the Philippines, including graphic assets for Indonesia Liga 1 and English Premier League matches.</span>
+                            <span data-lang-en="Executed global sports media packages for audiences in the Philippines, including graphic assets for Indonesia Liga 1 and English Premier League matches." data-lang-zh="为菲律宾受众执行全球体育媒体视觉包，包括印度尼西亚甲级联赛 and 英超联赛比赛的创意资产。">Executed global sports media packages for audiences in the Philippines, including graphic assets for Indonesia Liga 1 and English Premier League matches.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
-                            <span data-lang-en="Architected brand identities for financial consultants in Jakarta, including Karskay & Kasumasa Finance Consulting." data-lang-zh="为主导雅加达的金融咨询服务商构建整体品牌标识体系，包括 Karskay 和 Kasumasa 金融咨询。">Architected brand identities for financial consultants in Jakarta, including Karskay & Kasumasa Finance Consulting.</span>
+                            <span data-lang-en="Architected brand identities for financial consultants in Jakarta, including Karskay & Kasumasa Finance Consulting." data-lang-zh="为主导雅加达的金融咨询服务商构建整体品牌标识体系，包括 Karskay and Kasumasa 金融咨询。">Architected brand identities for financial consultants in Jakarta, including Karskay & Kasumasa Finance Consulting.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
@@ -713,11 +773,11 @@
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
-                            <span data-lang-en="Engineered advanced app capabilities including integrated e-marketplaces, citizen report portals, AI chatbot assistance, mini-games, and immersive 360° virtual tourism features." data-lang-zh="开发了先进的应用功能，包括数字市场、市民报告门户、AI聊天辅助、迷你游戏和沉浸式 360° 虚拟旅游体验。">Engineered advanced app capabilities including integrated e-marketplaces, citizen report portals, AI chatbot assistance, mini-games, and immersive 360° virtual tourism features.</span>
+                            <span data-lang-en="Engineered advanced app capabilities including integrated e-marketplaces, citizen report portals, AI chatbot assistance, mini-games, and immersive 360° virtual tourism features." data-lang-zh="开发了先进的应用功能，包括数字市场、市民报告门户、AI聊天辅助、迷你游戏 and 沉浸式 360° 虚拟旅游体验。">Engineered advanced app capabilities including integrated e-marketplaces, citizen report portals, AI chatbot assistance, mini-games, and immersive 360° virtual tourism features.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
-                            <span data-lang-en="Orchestrated digital branding and executed high-impact social media design strategies for Manado Town Square and Jagosatu.com." data-lang-zh="策划数字品牌并为 Manado Town Square 及 Jagosatu.com 执行高转化率 of 社交媒体设计策略。">Orchestrated digital branding and executed high-impact social media design strategies for Manado Town Square and Jagosatu.com.</span>
+                            <span data-lang-en="Orchestrated digital branding and executed high-impact social media design strategies for Manado Town Square and Jagosatu.com." data-lang-zh="策划数字品牌并为 Manado Town Square 及 Jagosatu.com 执行高转化率 of 社交媒体 design 策略。">Orchestrated digital branding and executed high-impact social media design strategies for Manado Town Square and Jagosatu.com.</span>
                         </li>
                     </ul>
                 </div>
@@ -730,7 +790,7 @@
                         <span class="font-mono text-[10px] text-stone-500 uppercase tracking-widest"><i class="fa-solid fa-gamepad"></i> Game Dev Studio • Indonesia</span>
                     </div>
 
-                    <h3 class="font-syne text-2xl md:text-3xl font-black text-white uppercase mb-1" data-lang-en="Founder / CPO / IT Project Manager" data-lang-zh="创始人 / 首席产品官 / 代理IT项目经理">Founder / CPO / IT Project Manager</h3>
+                    <h3 class="font-syne text-2xl md:text-3xl font-black text-white uppercase mb-1" data-lang-en="Founder / CPO / IT Project Manager" data-lang-zh="创始人 / 首席产品官 / 代理IT project经理">Founder / CPO / IT Project Manager</h3>
                     <h4 class="font-space text-lg text-grunge-red font-bold uppercase tracking-wider mb-6">Big Dade Interactive</h4>
                     
                     <ul class="space-y-3 font-space text-stone-300 text-sm">
@@ -740,7 +800,7 @@
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
-                            <span data-lang-en="Created and developed Manguni Squad, an FPS mobile game. Oversaw core game visuals, character designs, and merchandise assets. Awarded Top 10 IP in Indonesia by BEKRAF (Katapel Batch 2019)." data-lang-zh="创立并研发了移动端FPS游戏 Manguni Squad。主导游戏核心视觉包装、角色美术造型设计和系列实体周边。荣获印尼 BEKRAF Katapel 2019 颁发的印尼十大优质IP大奖。">Created and developed Manguni Squad, an FPS mobile game. Oversaw core game visuals, character designs, and merchandise assets. Awarded Top 10 IP in Indonesia by BEKRAF (Katapel Batch 2019).</span>
+                            <span data-lang-en="Created and developed Manguni Squad, an FPS mobile game. Oversaw core game visuals, character designs, and merchandise assets. Awarded Top 10 IP in Indonesia by BEKRAF (Katapel Batch 2019)." data-lang-zh="创立并研发了移动端FPS游戏 Manguni Squad。主导游戏核心视觉包装、角色美术造型设计 and 系列实体周边。荣获印尼 BEKRAF Katapel 2019 颁发的印尼十大优质IP大奖。">Created and developed Manguni Squad, an FPS mobile game. Oversaw core game visuals, character designs, and merchandise assets. Awarded Top 10 IP in Indonesia by BEKRAF (Katapel Batch 2019).</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
@@ -751,7 +811,7 @@
 
                 <!-- Experience Item 5: Nadi Health Tech -->
                 <div class="timeline-item relative group bg-[#151515] p-6 md:p-8 border border-white/10 hover:border-grunge-red transition-colors shadow-2xl rounded-lg">
-                    <div class="absolute -left-[35px] md:-left-[51px] top-8 w-6 h-6 rounded-full bg-grunge-black border-4 border-white/30 group-hover:border-grunge-red transition-colors z-20"></div>
+                    <div class="absolute -left-[35px] md:-left-[51px] top-8 w-6 h-6 rounded-full bg-grunge-black border-4 border-grunge-red group-hover:bg-grunge-red transition-colors z-20"></div>
                     <div class="flex items-center gap-3 mb-4">
                         <div class="inline-block px-3 py-1 bg-white/10 text-white font-mono text-xs uppercase rounded" data-lang-en="Dec 2021 - Oct 2022" data-lang-zh="2021年12月 - 2022年10月">Dec 2021 - Oct 2022</div>
                         <span class="font-mono text-[10px] text-stone-500 uppercase tracking-widest"><i class="fa-solid fa-heart-pulse"></i> Medical Tech • Malaysia</span>
