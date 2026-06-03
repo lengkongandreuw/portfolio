@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrew Lengkong | Creative Multimedia Designer Portfolio</title>
+    <title>Andreuw Lengkong | Creative Multimedia Designer Portfolio</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Syne (bold headings), Space Grotesk (tech/mono hybrid), Playfair Display (editorial italic) -->
@@ -140,37 +140,6 @@
             background-size: 6px 100%;
             opacity: 0.3;
         }
-
-        /* Lined-paper pattern for About Section */
-        .lined-paper {
-            background-color: #F4F3EF;
-            background-image: linear-gradient(#e5e2d9 1px, transparent 1px);
-            background-size: 100% 2.5rem; /* Matches line-height */
-        }
-
-        /* Glitch text effect on hover */
-        .glitch-hover:hover {
-            text-shadow: 2px -1px 0 #D12D2D, -2px 1px 0 #1D63B8;
-            animation: glitch-anim 0.3s infinite;
-        }
-
-        @keyframes glitch-anim {
-            0% { text-shadow: 2px -1px 0 #D12D2D, -2px 1px 0 #1D63B8; }
-            50% { text-shadow: -1px 2px 0 #D12D2D, 2px -2px 0 #1D63B8; }
-            100% { text-shadow: 1px -1px 0 #D12D2D, -1px 1px 0 #1D63B8; }
-        }
-
-        /* Infinite marquee */
-        @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-            animation: marquee 25s linear infinite;
-        }
-        .animate-marquee:hover {
-            animation-play-state: paused;
-        }
     </style>
 </head>
 <body class="bg-grunge-black text-grunge-white font-space overflow-x-hidden selection:bg-grunge-red selection:text-white">
@@ -186,7 +155,7 @@
     <header class="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center mix-blend-difference">
         <!-- Logo / Identity Badge -->
         <a href="#hero" class="group flex items-center gap-2">
-            <span class="font-syne text-sm md:text-lg tracking-tighter text-grunge-white group-hover:text-grunge-red transition-colors duration-300">LENGKONGANDREUW PORTFOLIO 2026</span>
+            <span class="font-syne text-sm md:text-lg tracking-tighter text-grunge-white group-hover:text-grunge-red transition-colors duration-300">AVL CV&Portfolio</span>
         </a>
 
         <!-- Floating Control Suite -->
@@ -208,72 +177,45 @@
         </div>
     </header>
 
-    <!-- SECTION 1: HERO / COVER (Splitted Canvas Style) -->
+    <!-- SECTION 1: HERO / COVER -->
     <section id="hero" class="relative min-h-screen w-full flex flex-col md:flex-row items-stretch justify-between overflow-hidden pt-16 md:pt-0">
         
-        <!-- Base portfoliobg.png Image Layer with Dynamic CSS Fallback if missing -->
+        <!-- Base portfoliobg.png Image Layer -->
         <div class="absolute inset-0 w-full h-full pointer-events-none z-0">
             <img src="./portfoliobg.png" alt="Portfolio Base Background" id="portfoliobg-img" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden'); document.getElementById('portfoliobg-fallback').classList.add('hidden');" onerror="this.remove();">
         </div>
 
-        <!-- Background Layer Fallback (Runs if portfoliobg.png is missing) -->
+        <!-- Background Layer Fallback -->
         <div id="portfoliobg-fallback" class="absolute inset-0 w-full h-full flex flex-col md:flex-row pointer-events-none z-0">
-            <!-- Left Half (Light/White Canvas) -->
             <div class="w-full md:w-1/2 bg-grunge-white grid-pattern-light relative p-8 flex flex-col justify-between overflow-hidden">
                 <div class="absolute inset-0 halftone opacity-30"></div>
-                <div class="absolute left-4 bottom-1/4 text-grunge-black/5 font-syne text-[12vw] leading-none select-none uppercase font-black">
-                    DESIGNER
-                </div>
-                <div class="absolute bottom-6 left-6 opacity-10 w-48 h-48">
-                    <svg viewBox="0 0 100 100" class="fill-current text-grunge-black">
-                        <path d="M50 5 L90 25 L80 75 L50 95 L20 75 L10 25 Z" fill="none" stroke="currentColor" stroke-width="2"/>
-                        <circle cx="50" cy="50" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                </div>
+                <div class="absolute left-4 bottom-1/4 text-grunge-black/5 font-syne text-[12vw] leading-none select-none uppercase font-black">DESIGNER</div>
             </div>
-
-            <!-- Right Half (Dark/Black Canvas) -->
             <div class="w-full md:w-1/2 bg-grunge-black grid-pattern-dark relative overflow-hidden flex flex-col justify-between p-8">
                 <div class="absolute inset-0 halftone-dark opacity-20"></div>
-                <div class="absolute right-4 top-12 text-grunge-white/[0.02] font-mono text-sm leading-relaxed text-right select-none">
-                    <pre>
-class AndrewLengkong {
-  constructor() {
-    this.role = "Creative Director";
-    this.skills = ["UI/UX", "Social Media", "Esports"];
-  }
-}
-                    </pre>
-                </div>
             </div>
         </div>
 
-        <!-- HERO MAIN WORKSPACE (Poster Composition Layout) -->
+        <!-- HERO MAIN WORKSPACE -->
         <div class="relative w-full flex-grow min-h-screen z-10 overflow-hidden">
             
-            <!-- RIGHT LAYER: nama.png (Cutout text, goes behind model) -->
             <div class="absolute top-[15%] md:top-[15%] right-[-5%] md:right-[2%] z-[15] w-[90%] md:w-[50%] pointer-events-none" id="rightHeroColumn">
                 <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/nama.png" alt="Andrew Lengkong" class="w-full h-auto drop-shadow-2xl">
             </div>
 
-            <!-- CENTER LAYER: model1.png (Free-standing cutout) -->
             <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-[25] w-full max-w-[800px] pointer-events-none flex justify-center items-end" id="centerHeroImage">
                 <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/model1.png" alt="Andrew Lengkong Portrait" class="w-full h-auto object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] max-h-[85vh]">
             </div>
 
-            <!-- LEFT LAYER: headlinecover.png -->
             <div class="absolute top-[20%] md:top-[25%] left-[5%] md:left-[8%] z-[30] w-[85%] md:w-[35%] flex flex-col items-start" id="leftHeroColumn">
-                <!-- Distressed Red Badge -->
                 <div class="inline-block transform -rotate-2 mb-4 px-3 py-1 bg-grunge-red text-white font-mono text-xs font-bold tracking-widest uppercase rounded shadow-lg animate-bounce">
                     <i class="fa-solid fa-bolt mr-1"></i> PORTFOLIO EDITION 2026
                 </div>
 
-                <!-- Replaceable Headline Image -->
                 <div class="relative mb-6 w-full">
                     <img src="./headlinecover.png" alt="Creative Multimedia Designer Headline" id="headlinecover-img" class="max-w-full h-auto hidden drop-shadow-xl" onload="this.classList.remove('hidden'); document.getElementById('headlinecover-fallback').classList.add('hidden');" onerror="this.remove();">
                 </div>
 
-                <!-- Fallback typography block if headlinecover.png is missing -->
                 <div id="headlinecover-fallback" class="bg-transparent rounded-lg relative mb-6">
                     <h2 class="font-syne text-4xl lg:text-6xl font-black leading-tight tracking-tighter text-grunge-black uppercase select-none drop-shadow-md">
                         <span class="block bg-grunge-black text-white px-2 py-1 transform -rotate-1 inline-block mb-1" data-lang-en="CREATIVE" data-lang-zh="极具创意">CREATIVE</span>
@@ -286,12 +228,8 @@ class AndrewLengkong {
                     Designing impactful digital experiences that drive engagement, solve problems, and deliver real business value.
                 </div>
 
-                <!-- Signature -->
-                <p class="font-brush text-4xl text-grunge-red transform -rotate-3 select-none mb-4">
-                    Andrew Lengkong
-                </p>
+                <p class="font-brush text-4xl text-grunge-red transform -rotate-3 select-none mb-4">Andreuw Lengkong</p>
 
-                <!-- Stylized Black Masking/Duct Tape with scrolling text -->
                 <div class="w-full bg-grunge-black text-grunge-white py-2 px-3 transform -rotate-1 relative overflow-hidden shadow-lg border-y-2 border-grunge-white/20 select-none max-w-sm">
                     <div class="flex overflow-hidden whitespace-nowrap">
                         <div class="inline-block animate-marquee uppercase font-mono text-xs tracking-widest">
@@ -302,188 +240,126 @@ class AndrewLengkong {
                         <div class="inline-block animate-marquee uppercase font-mono text-xs tracking-widest">
                             <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="BASED IN MANADO, INDONESIA" data-lang-zh="驻于印度尼西亚万鸦老">BASED IN MANADO, INDONESIA</span>
                             <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="ESTABLISHED 1989" data-lang-zh="始于1989年">ESTABLISHED 1989</span>
-                            <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="CODE IS DESIGN" data-lang-zh="代码即es设计">CODE IS DESIGN</span>
+                            <span class="mx-4 text-grunge-red">★</span> <span data-lang-en="CODE IS DESIGN" data-lang-zh="代码即是设计">CODE IS DESIGN</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- FLOATING NAVIGATION DOCK: footerkiri.png / Custom UI Dock Fallback -->
+        <!-- FLOATING NAVIGATION DOCK -->
         <div class="absolute bottom-0 left-0 w-full z-30 px-6 py-6 flex justify-center pointer-events-auto">
             <div class="w-full max-w-5xl bg-grunge-black/95 backdrop-blur-md border-t-4 border-grunge-red p-4 rounded-t-lg shadow-2xl flex flex-wrap gap-4 items-center justify-between" id="navigationDock">
-                <!-- Replaceable Footer Left Image -->
                 <div class="flex items-center gap-3">
                     <img src="./footerkiri.png" alt="Capabilities Dock Badge" id="footerkiri-img" class="h-10 w-auto hidden" onload="this.classList.remove('hidden'); document.getElementById('footerkiri-fallback').classList.add('hidden');" onerror="this.remove();">
-                    
-                    <!-- Fallback badge if footerkiri.png is missing -->
                     <div id="footerkiri-fallback" class="flex items-center gap-2">
                         <span class="w-3 h-3 bg-grunge-red rounded-full animate-ping"></span>
                         <span class="font-mono text-xs uppercase tracking-wider text-stone-300" data-lang-en="EXPLORE CAPABILITIES" data-lang-zh="探索核心能力">EXPLORE CAPABILITIES</span>
                     </div>
                 </div>
                 
-                <!-- Navigation Anchor Targets -->
                 <div class="flex flex-wrap items-center gap-6">
                     <a href="#about" class="text-xs font-mono uppercase text-stone-300 hover:text-grunge-red transition-all duration-300 flex items-center gap-1.5 group">
                         <i class="fa-solid fa-user-ninja text-grunge-red group-hover:rotate-12 transition-transform"></i>
-                        <span data-lang-en="About Andrew" data-lang-zh="关于安德鲁">About Andrew</span>
+                        <span data-lang-en="About" data-lang-zh="关于">About</span>
                     </a>
                     <a href="#services" class="text-xs font-mono uppercase text-stone-300 hover:text-grunge-red transition-all duration-300 flex items-center gap-1.5 group">
                         <i class="fa-solid fa-cubes text-grunge-red group-hover:rotate-12 transition-transform"></i>
-                        <span data-lang-en="What I Design" data-lang-zh="我的设计门类">What I Design</span>
+                        <span data-lang-en="Portfolio" data-lang-zh="作品集">Portfolio</span>
+                    </a>
+                    <a href="#experience" class="text-xs font-mono uppercase text-stone-300 hover:text-grunge-red transition-all duration-300 flex items-center gap-1.5 group">
+                        <i class="fa-solid fa-timeline text-grunge-red group-hover:rotate-12 transition-transform"></i>
+                        <span data-lang-en="Experience" data-lang-zh="经验">Experience</span>
                     </a>
                     <a href="#contact" class="text-xs font-mono uppercase text-stone-300 hover:text-grunge-red transition-all duration-300 flex items-center gap-1.5 group">
                         <i class="fa-solid fa-address-book text-grunge-red group-hover:rotate-12 transition-transform"></i>
-                        <span data-lang-en="Direct Link" data-lang-zh="直连通道">Direct Link</span>
+                        <span data-lang-en="Contact" data-lang-zh="联系">Contact</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 2: ABOUT ME (Dark Grunge / Chalkboard Layout) -->
+    <!-- SECTION 2: ABOUT ME -->
     <section id="about" class="relative min-h-screen w-full bg-grunge-black py-24 px-6 md:px-12 lg:px-20 flex flex-col justify-center overflow-hidden">
-        
-        <!-- Base Section 2 Background Image -->
         <div class="absolute inset-0 w-full h-full pointer-events-none z-0">
             <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/section2bg.png" alt="About Me Background" class="w-full h-full object-cover opacity-95">
         </div>
 
         <div class="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <!-- LEFT COLUMN: About Me Header & Info List -->
             <div class="lg:col-span-5 flex flex-col justify-center" id="about-left">
-                
-                <!-- Stylized Text Header matching image_8dc9bf.jpg -->
                 <div class="mb-10 transform -rotate-3 select-none">
                     <h2 class="font-syne text-6xl md:text-7xl font-black uppercase tracking-tighter flex items-center gap-3">
                         <span class="text-white drop-shadow-md">ABOUT</span> 
                         <span class="text-grunge-red drop-shadow-md">ME</span>
                     </h2>
-                    <!-- Red underline stroke -->
                     <div class="w-64 h-1.5 bg-grunge-red mt-2 rounded opacity-90 box-shadow-lg"></div>
-                    <!-- Thin secondary underline -->
                     <div class="w-72 h-[1px] bg-grunge-red mt-1 rounded opacity-50"></div>
                 </div>
 
-                <!-- Lined List Info (White text on dark bg) -->
                 <ul class="space-y-4 font-mono text-sm pr-4">
-                    <!-- Profession -->
                     <li class="flex items-center gap-4 border-b border-stone-500/50 pb-3 group">
-                        <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-user text-xs"></i>
-                        </div>
+                        <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform"><i class="fa-solid fa-user text-xs"></i></div>
                         <span class="text-stone-200 font-bold tracking-wide" data-lang-en="Experienced Full Stack Graphic Designer" data-lang-zh="资深全栈平面视觉设计师">Experienced Full Stack Graphic Designer</span>
                     </li>
-                    <!-- Year Born -->
                     <li class="flex items-center gap-4 border-b border-stone-500/50 pb-3 group">
-                        <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
-                            <i class="fa-regular fa-calendar text-xs"></i>
-                        </div>
+                        <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform"><i class="fa-regular fa-calendar text-xs"></i></div>
                         <span class="text-stone-200 tracking-wide">born in 1989</span>
                     </li>
-                    <!-- Location -->
                     <li class="flex items-center gap-4 border-b border-stone-500/50 pb-3 group">
-                        <div class="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-location-dot text-xs"></i>
-                        </div>
+                        <div class="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform"><i class="fa-solid fa-location-dot text-xs"></i></div>
                         <span class="text-stone-200 tracking-wide">live in Manado, Indonesia</span>
                     </li>
-                    <!-- Email -->
                     <li class="flex items-center gap-4 border-b border-stone-500/50 pb-3 group">
-                        <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-envelope text-xs"></i>
-                        </div>
+                        <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform"><i class="fa-solid fa-envelope text-xs"></i></div>
                         <a href="mailto:lengkongandrew@gmail.com" class="text-stone-200 tracking-wide hover:text-white transition-colors">lengkongandrew@gmail.com</a>
                     </li>
-                    <!-- WhatsApp -->
                     <li class="flex items-center gap-4 border-b border-stone-500/50 pb-3 group">
-                        <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
-                            <i class="fa-brands fa-whatsapp text-sm"></i>
-                        </div>
-                        <span class="text-stone-200 tracking-wide flex gap-2">
-                            <span class="text-stone-400">fast response via whatsapp</span>
-                            <a href="https://wa.me/6285796400320" target="_blank" class="hover:text-white transition-colors">+62 857 9640 0320</a>
-                        </span>
+                        <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform"><i class="fa-brands fa-whatsapp text-sm"></i></div>
+                        <span class="text-stone-200 tracking-wide flex gap-2"><span class="text-stone-400">fast response via whatsapp</span><a href="https://wa.me/6285796400320" target="_blank" class="hover:text-white transition-colors">+62 857 9640 0320</a></span>
                     </li>
-                    <!-- Behance -->
                     <li class="flex items-center gap-4 border-b border-stone-500/50 pb-3 group">
-                        <div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg font-bold font-syne text-sm group-hover:scale-110 transition-transform">
-                            Bē
-                        </div>
+                        <div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg font-bold font-syne text-sm group-hover:scale-110 transition-transform">Bē</div>
                         <a href="https://behance.net/andrewlengkong" target="_blank" class="text-blue-400 underline tracking-wide hover:text-blue-300 transition-colors">behance.net/andrewlengkong</a>
                     </li>
-                    <!-- LinkedIn -->
                     <li class="flex items-center gap-4 border-b border-stone-500/50 pb-3 group">
-                        <div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg font-bold font-syne text-sm group-hover:scale-110 transition-transform">
-                            in
-                        </div>
-                        <a href="https://linkedin.com/in/lengkongandrew/" target="_blank" class="text-blue-400 underline tracking-wide hover:text-blue-300 transition-colors">linkedin.com/in/lengkongandrew/</a>
+                        <div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-white flex-shrink-0 shadow-lg font-bold font-syne text-sm group-hover:scale-110 transition-transform">in</div>
+                        <a href="https://linkedin.com/in/lengkongandreuw/" target="_blank" class="text-blue-400 underline tracking-wide hover:text-blue-300 transition-colors">linkedin.com/in/lengkongandreuw/</a>
                     </li>
                 </ul>
             </div>
 
-            <!-- RIGHT COLUMN: Distressed Chalk Summary Box -->
             <div class="lg:col-span-7 flex flex-col justify-center relative mt-12 lg:mt-0" id="about-right">
-                
                 <div class="relative w-full">
-                    <!-- Floating Paperclip Decoration -->
-                    <div class="absolute -top-12 left-1/4 transform rotate-45 text-stone-300/60 select-none z-0">
-                        <i class="fa-solid fa-paperclip text-4xl"></i>
-                    </div>
-
-                    <!-- Blue Painter's Tape Title -->
+                    <div class="absolute -top-12 left-1/4 transform rotate-45 text-stone-300/60 select-none z-0"><i class="fa-solid fa-paperclip text-4xl"></i></div>
                     <div class="absolute -top-6 left-12 blue-tape px-6 py-2.5 text-white font-syne font-black text-xl lg:text-3xl tracking-widest uppercase z-20 transform -rotate-2 select-none shadow-lg border border-blue-400/20">
                         <span data-lang-en="SUMMARY" data-lang-zh="个人自述">SUMMARY</span>
                     </div>
-
-                    <!-- Binder Clip Hardware -->
                     <div class="absolute -top-8 right-8 z-30 transform rotate-12 select-none drop-shadow-xl">
-                        <svg width="50" height="50" viewBox="0 0 100 100" fill="none">
-                            <rect x="35" y="40" width="30" height="35" rx="2" fill="#111" stroke="#fff" stroke-width="2"/>
-                            <path d="M50 10 C65 10, 70 25, 65 40 M50 10 C35 10, 30 25, 35 40" fill="none" stroke="#ddd" stroke-width="5" stroke-linecap="round"/>
-                        </svg>
+                        <svg width="50" height="50" viewBox="0 0 100 100" fill="none"><rect x="35" y="40" width="30" height="35" rx="2" fill="#111" stroke="#fff" stroke-width="2"/><path d="M50 10 C65 10, 70 25, 65 40 M50 10 C35 10, 30 25, 35 40" fill="none" stroke="#ddd" stroke-width="5" stroke-linecap="round"/></svg>
                     </div>
 
-                    <!-- Main Summary Chalk-Box Container -->
                     <div class="border-[3px] border-white/80 p-8 md:p-12 relative z-10 bg-black/20 backdrop-blur-[2px] shadow-2xl">
-                        
-                        <!-- Pseudo double border effect -->
                         <div class="absolute inset-2 border border-white/30 transform rotate-1 pointer-events-none"></div>
-
                         <div class="space-y-6 text-stone-200 text-base md:text-lg leading-relaxed font-space z-10 relative mt-6">
-                            <p data-lang-en="Designer with 15+ years of experience in UI/UX, visual design, and digital products. I design mobile apps, games, and marketing visuals." data-lang-zh="拥有超过 15 年行业经验的资深设计师，专注于 UI/UX、视觉设计 and 数字产品。我设计移动应用程序、游戏和营销视觉效果。">
-                                Designer with 15+ years of experience in UI/UX, visual design, and digital products. I design mobile apps, games, and marketing visuals.
-                            </p>
-                            <p data-lang-en="Strong in turning ideas into clear and engaging designs. Experienced in leading projects and working with cross-functional teams." data-lang-zh="善于将创意转化为清晰且引人入胜的设计。在领导项目以及与跨职能团队合作方面经验丰富。">
-                                Strong in turning ideas into clear and engaging designs. Experienced in leading projects and working with cross-functional teams.
-                            </p>
+                            <p data-lang-en="Designer with 15+ years of experience in UI/UX, visual design, and digital products. I design mobile apps, games, and marketing visuals." data-lang-zh="拥有超过 15 年行业经验的资深设计师，专注于 UI/UX、视觉设计 and 数字产品。我设计移动应用程序、游戏和营销视觉效果。">Designer with 15+ years of experience in UI/UX, visual design, and digital products. I design mobile apps, games, and marketing visuals.</p>
+                            <p data-lang-en="Strong in turning ideas into clear and engaging designs. Experienced in leading projects and working with cross-functional teams." data-lang-zh="善于将创意转化为清晰且引人入胜的设计。在领导项目以及与跨职能团队合作方面经验丰富。">Strong in turning ideas into clear and engaging designs. Experienced in leading projects and working with cross-functional teams.</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- SECTION 3: WHAT I DESIGN (Hardcoded Bento Box Grid with Direct Modal Overlays) -->
+    <!-- SECTION 3: WHAT I DESIGN -->
     <section id="services" class="relative min-h-screen w-full bg-grunge-black py-24 px-6 md:px-12 lg:px-20 overflow-hidden">
-        
-        <!-- Base Section 3 Background Image -->
         <div class="absolute inset-0 w-full h-full pointer-events-none z-0">
             <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/section3bg.png" alt="What I Design Background" class="w-full h-full object-cover opacity-90">
-            <!-- Overlay gradient untuk memastikan teks tetap terbaca -->
             <div class="absolute inset-0 bg-gradient-to-b from-grunge-black/60 via-transparent to-grunge-black"></div>
         </div>
 
         <div class="max-w-7xl mx-auto relative z-10">
-            
-            <!-- THE HARDCODED BENTO BOX GRID LAYOUT -->
-            <!-- Layout logic: 4 columns setup to mimic the masonry/bento reference image -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px] md:auto-rows-[300px]">
-
-                <!-- Title Header Box -->
                 <div class="col-span-1 md:col-span-2 lg:col-span-2 row-span-1 flex flex-col justify-center p-4 lg:p-10 bg-transparent border-none bento-item">
                     <span class="font-mono text-grunge-red uppercase tracking-widest text-sm font-bold block mb-2">// CAPABILITIES INDEX</span>
                     <h2 class="font-syne text-5xl lg:text-7xl font-black text-white uppercase select-none leading-none mb-4">
@@ -492,32 +368,23 @@ class AndrewLengkong {
                     </h2>
                 </div>
 
-                <!-- 01: Branding & Logo Design -->
                 <button onclick="openBentoModal('branding')" class="bento-item col-span-1 md:col-span-2 lg:col-span-2 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block text-left w-full h-full">
-                    <!-- GitHub Raw Background with texture overlay -->
                     <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/logo.png" alt="Branding Background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-                    
                     <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end z-10">
                         <div>
                             <span class="font-mono text-grunge-red font-bold text-lg block mb-1">01</span>
                             <h3 class="font-syne text-2xl lg:text-3xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors" data-lang-en="BRANDING & LOGO DESIGN" data-lang-zh="品牌与标志设计">BRANDING & LOGO DESIGN</h3>
                         </div>
-                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors flex-shrink-0">
-                            <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
-                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors flex-shrink-0"><i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i></div>
                     </div>
                 </button>
 
-                <!-- 02: UI/UX App & Web Design (Tall Box) -->
                 <button onclick="openBentoModal('uiux')" class="bento-item col-span-1 md:col-span-1 lg:col-span-1 row-span-2 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block text-left w-full h-full flex flex-col justify-between">
                     <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/uiux.png" alt="UI/UX Background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                    
                     <div class="relative z-10 p-6 flex flex-col h-full w-full">
-                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors self-end mb-auto">
-                            <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
-                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors self-end mb-auto"><i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i></div>
                         <div class="mt-auto">
                             <span class="font-mono text-grunge-red font-bold text-lg block mb-1">02</span>
                             <h3 class="font-syne text-2xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors" data-lang-en="UI/UX APP & WEB DESIGN" data-lang-zh="UI/UX 应用程序与网页设计">UI/UX APP & WEB DESIGN</h3>
@@ -525,31 +392,23 @@ class AndrewLengkong {
                     </div>
                 </button>
 
-                <!-- 03: Digital Imaging & Retouch -->
                 <button onclick="openBentoModal('digital')" class="bento-item col-span-1 md:col-span-1 lg:col-span-2 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block text-left w-full h-full">
                     <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/imagedig.png" alt="Digital Imaging Background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-                    
                     <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end z-10">
                         <div>
                             <span class="font-mono text-grunge-red font-bold text-lg block mb-1">03</span>
                             <h3 class="font-syne text-xl lg:text-2xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors" data-lang-en="DIGITAL IMAGING & RETOUCH" data-lang-zh="数字成像与修饰">DIGITAL IMAGING & RETOUCH</h3>
                         </div>
-                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors flex-shrink-0 hidden sm:flex">
-                            <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
-                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors flex-shrink-0 hidden sm:flex"><i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i></div>
                     </div>
                 </button>
 
-                <!-- 04: Social Media & Pub (Tall Box) -->
                 <button onclick="openBentoModal('social')" class="bento-item col-span-1 md:col-span-1 lg:col-span-1 row-span-2 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block text-left w-full h-full flex flex-col justify-between">
                     <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/socialmedia.png" alt="Social Media Background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                    
                     <div class="relative z-10 p-6 flex flex-col h-full w-full">
-                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors self-end mb-auto">
-                            <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
-                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors self-end mb-auto"><i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i></div>
                         <div class="mt-auto">
                             <span class="font-mono text-grunge-red font-bold text-lg block mb-1">04</span>
                             <h3 class="font-syne text-2xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors" data-lang-en="SOCIAL MEDIA & PUB" data-lang-zh="社交媒体与出版">SOCIAL MEDIA & PUB</h3>
@@ -557,55 +416,43 @@ class AndrewLengkong {
                     </div>
                 </button>
 
-                <!-- 05: Esport Design & Brand -->
                 <button onclick="openBentoModal('esports')" class="bento-item col-span-1 md:col-span-1 lg:col-span-2 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block text-left w-full h-full">
                     <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/sports.png" alt="Esport Design Background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-                    
                     <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end z-10">
                         <div>
                             <span class="font-mono text-grunge-red font-bold text-lg block mb-1">05</span>
                             <h3 class="font-syne text-xl lg:text-2xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors" data-lang-en="ESPORT DESIGN & BRAND" data-lang-zh="电竞设计与品牌">ESPORT DESIGN & BRAND</h3>
                         </div>
-                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors flex-shrink-0 hidden sm:flex">
-                            <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
-                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors flex-shrink-0 hidden sm:flex"><i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i></div>
                     </div>
                 </button>
 
-                <!-- 06: Merch and Fashion -->
                 <button onclick="openBentoModal('merch')" class="bento-item col-span-1 md:col-span-1 lg:col-span-1 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block text-left w-full h-full flex flex-col justify-between">
                     <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/Screenshot%202026-06-02%20183144.png" alt="Merch and Fashion Background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                    
                     <div class="relative z-10 p-6 flex flex-col h-full justify-end">
                         <span class="font-mono text-grunge-red font-bold text-lg block mb-1">06</span>
                         <h3 class="font-syne text-xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors leading-tight" data-lang-en="MERCH & FASHION" data-lang-zh="周边商品与时尚设计">MERCH & FASHION</h3>
                     </div>
                 </button>
 
-                <!-- 07: Game Design Related -->
                 <button onclick="openBentoModal('game')" class="bento-item col-span-1 md:col-span-2 lg:col-span-3 row-span-1 group relative overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-stone-900 block text-left w-full h-full">
                     <img src="https://raw.githubusercontent.com/lengkongandreuw/portfolio/main/ganedesign.png" alt="Game Design Background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                    
                     <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end z-10">
                         <div>
                             <span class="font-mono text-grunge-red font-bold text-lg block mb-1">07</span>
                             <h3 class="font-syne text-2xl font-black text-white uppercase tracking-tight group-hover:text-grunge-red transition-colors" data-lang-en="GAME DESIGN RELATED" data-lang-zh="游戏设计相关">GAME DESIGN RELATED</h3>
                         </div>
-                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors flex-shrink-0">
-                            <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
-                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white backdrop-blur group-hover:bg-grunge-red transition-colors flex-shrink-0"><i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i></div>
                     </div>
                 </button>
-
             </div>
 
             <!-- TOOLS & SYSTEMS SECTION -->
             <div class="mt-20 pt-16 border-t border-white/10 relative z-10 bento-item">
                 <div class="flex flex-col lg:flex-row items-stretch gap-12">
-                    
                     <div class="w-full lg:w-1/3 flex flex-col justify-between">
                         <div>
                             <span class="font-mono text-grunge-red text-xs uppercase tracking-widest block mb-2">// TECHNICAL PIPELINE</span>
@@ -657,14 +504,185 @@ class AndrewLengkong {
                             <div><h4 class="font-bold text-sm text-white">Collaboration</h4><p class="text-[10px] text-stone-500">Agile Workflow</p></div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- SECTION 4: DIRECT CONNECTS / FOOTER -->
+    <!-- SECTION 4: WORK EXPERIENCE (Enriched with exact image references from CV) -->
+    <section id="experience" class="relative min-h-screen w-full bg-[#0a0a0a] py-24 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-white/5">
+        <!-- Background Grid -->
+        <div class="absolute inset-0 grid-pattern-dark pointer-events-none opacity-20 z-0"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row gap-12">
+            
+            <!-- Left Header Area -->
+            <div class="lg:w-1/3 flex flex-col items-start lg:sticky lg:top-32 h-fit">
+                <span class="font-mono text-grunge-red uppercase tracking-widest text-sm font-bold block mb-2">// CAREER DOSSIER</span>
+                <h2 class="font-syne text-5xl lg:text-7xl font-black text-white uppercase select-none leading-none mb-6">
+                    <span data-lang-en="WORK" data-lang-zh="工作">WORK</span><br>
+                    <span class="text-grunge-red bg-grunge-white text-grunge-black px-4 transform -rotate-1 inline-block mt-2" data-lang-en="EXPERIENCE" data-lang-zh="经历">EXPERIENCE</span>
+                </h2>
+                <div class="text-stone-400 font-mono text-sm leading-relaxed border-l-2 border-grunge-red pl-4 max-w-sm mb-8" data-lang-en="Over 15 years of leading product designs, executing full-stack visual pipelines, and driving high-impact digital experiences across cross-functional industries." data-lang-zh="主导产品设计、执行全栈视觉效果并在跨行业推动超过 15 年的高影响力数字体验的履历记录。">
+                    Over 15 years of leading product designs, executing full-stack visual pipelines, and driving high-impact digital experiences across cross-functional industries.
+                </div>
+                
+                <div class="hidden lg:block opacity-20">
+                    <svg width="150" height="150" viewBox="0 0 100 100" class="stroke-white animate-[spin_30s_linear_infinite]">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke-width="1" stroke-dasharray="4 4"/>
+                        <circle cx="50" cy="50" r="30" fill="none" stroke-width="0.5"/>
+                        <path d="M50 0 L50 100 M0 50 L100 50" stroke-width="0.5"/>
+                        <circle cx="50" cy="50" r="5" fill="#D12D2D"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Right Timeline Area -->
+            <div class="lg:w-2/3 relative border-l-4 border-grunge-red pl-6 md:pl-10 space-y-12 pb-10">
+                
+                <!-- 1. Voxlumedia (image_041941.png) -->
+                <div class="timeline-item relative group bg-[#151515] p-6 md:p-8 border border-white/10 hover:border-grunge-red transition-colors shadow-2xl rounded-lg">
+                    <div class="absolute -left-[35px] md:-left-[51px] top-8 w-6 h-6 rounded-full bg-grunge-black border-4 border-grunge-red group-hover:bg-grunge-red transition-colors z-20"></div>
+                    <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="inline-block px-3 py-1 bg-white/10 text-white font-mono text-xs uppercase rounded" data-lang-en="Sep 2025 - Present" data-lang-zh="2025年9月 - 至今">Sep 2025 - Present</div>
+                            <span class="font-mono text-[10px] text-stone-500 uppercase tracking-widest"><i class="fa-solid fa-earth-asia"></i> Remote • Vienna, VA, USA</span>
+                        </div>
+                        <a href="https://voxlumedia.com" target="_blank" class="text-xs text-grunge-red hover:underline font-mono">voxlumedia.com <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                    
+                    <h3 class="font-syne text-2xl md:text-3xl font-black text-white uppercase mb-1" data-lang-en="Lead Digital Marketing" data-lang-zh="数字营销主管">Lead Digital Marketing</h3>
+                    <h4 class="font-space text-lg text-grunge-red font-bold uppercase tracking-wider mb-6">Voxlumedia</h4>
+                    
+                    <ul class="space-y-3 font-space text-stone-300 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
+                            <span data-lang-en="Develop and execute digital marketing strategies for SME brands in the U.S., primarily targeting Middle Eastern–American audiences." data-lang-zh="为美国的中小企业品牌制定并执行数字营销策略，主要针对中东裔美国人群体。">Develop and execute digital marketing strategies for SME brands in the U.S., primarily targeting Middle Eastern–American audiences.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
+                            <span data-lang-en="Manage a cross-country creative team and oversee content production and social media campaigns." data-lang-zh="管理跨国创意团队，监督内容制作和社交媒体营销活动。">Manage a cross-country creative team and oversee content production and social media campaigns.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
+                            <span data-lang-en="Directly handle key clients, spearheading branding specialization and lead art direction for content." data-lang-zh="直接对接核心大客户，主导品牌化专业定位并为所有数字内容提供艺术指导。">Directly handle key clients, spearheading branding specialization and lead art direction for content.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 2. Manado Post Group -->
+                <div class="timeline-item relative group bg-[#151515] p-6 md:p-8 border border-white/10 hover:border-grunge-red transition-colors shadow-2xl rounded-lg">
+                    <div class="absolute -left-[35px] md:-left-[51px] top-8 w-6 h-6 rounded-full bg-grunge-black border-4 border-grunge-red group-hover:bg-grunge-red transition-colors z-20"></div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="inline-block px-3 py-1 bg-white/10 text-white font-mono text-xs uppercase rounded" data-lang-en="Mar 2024 - Present" data-lang-zh="2024年3月 - 至今">Mar 2024 - Present</div>
+                        <span class="font-mono text-[10px] text-stone-500 uppercase tracking-widest"><i class="fa-solid fa-earth-asia"></i> Hybrid • Manado, Indonesia</span>
+                    </div>
+                    
+                    <h3 class="font-syne text-2xl md:text-3xl font-black text-white uppercase mb-1" data-lang-en="Product Designer & Digital Media Strategist" data-lang-zh="产品设计师与数字媒体策略师">Product Designer & Digital Media Strategist</h3>
+                    <h4 class="font-space text-lg text-grunge-red font-bold uppercase tracking-wider mb-6" data-lang-en="Manado Post Group" data-lang-zh="万鸦老邮报集团">Manado Post Group</h4>
+                    
+                    <ul class="space-y-3 font-space text-stone-300 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
+                            <span data-lang-en="Spearheaded UI/UX and successfully launched the ManadoPost Mobile App across Android and Apple App Stores, integrating marketplace, AI chat, and 360° virtual tourism." data-lang-zh="主导并成功在 iOS & Android 应用商店上线万鸦老邮报应用程序，集成了商城、AI聊天和 360° 虚拟旅游体验。">Spearheaded UI/UX and successfully launched the ManadoPost Mobile App across Android and Apple App Stores, integrating marketplace, AI chat, and 360° virtual tourism.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
+                            <span data-lang-en="Managed creative direction and social media branding strategies for Manado Town Square and Jagosatu.com." data-lang-zh="为主力合作方 Manado Town Square 购物广场及 Jagosatu.com 主导创意执行和社交媒体运营。">Managed creative direction and social media branding strategies for Manado Town Square and Jagosatu.com.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 3. Kustomisasi Kreasi K. Design Agency (image_04197a.png) -->
+                <div class="timeline-item relative group bg-[#151515] p-6 md:p-8 border border-white/10 hover:border-grunge-red transition-colors shadow-2xl rounded-lg">
+                    <div class="absolute -left-[35px] md:-left-[51px] top-8 w-6 h-6 rounded-full bg-grunge-black border-4 border-grunge-red group-hover:bg-grunge-red transition-colors z-20"></div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="inline-block px-3 py-1 bg-white/10 text-white font-mono text-xs uppercase rounded" data-lang-en="2022 - Present" data-lang-zh="2022年 - 至今">2022 - Present</div>
+                        <span class="font-mono text-[10px] text-stone-500 uppercase tracking-widest"><i class="fa-solid fa-earth-asia"></i> Hybrid • Open Location</span>
+                    </div>
+                    
+                    <h3 class="font-syne text-2xl md:text-3xl font-black text-white uppercase mb-1" data-lang-en="Creative Director - Founder" data-lang-zh="创意总监 - 创始人">Creative Director - Founder</h3>
+                    <h4 class="font-space text-lg text-grunge-red font-bold uppercase tracking-wider mb-6">Kustomisasi Kreasi K. Design Agency</h4>
+                    
+                    <ul class="space-y-3 font-space text-stone-300 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
+                            <span data-lang-en="Delivered custom design solutions for a 3rd party Sport Streaming Platform in the Philippines (July 2024 - June 2025), handling match promotion layouts for Liga Indonesia, Premier League, and Timnas Indonesia." data-lang-zh="为菲律宾第三方体育流媒体平台（2024.7 - 2025.6）定制视觉方案，操盘印尼超级联赛、英超以及印尼国家队赛事宣推设计。">Delivered custom design solutions for a 3rd party Sport Streaming Platform in the Philippines (July 2024 - June 2025), handling match promotion layouts for Liga Indonesia, Premier League, and Timnas Indonesia.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
+                            <span data-lang-en="Provided visual consulting for a Philippine-based Sports Betting Company (Jan - Apr 2026)." data-lang-zh="为菲律宾体育博彩公司提供全套创意视觉系统咨询服务（2026.1 - 2026.4）。">Provided visual consulting for a Philippine-based Sports Betting Company (Jan - Apr 2026).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
+                            <span data-lang-en="Engineered brand identities for high-profile firms, including Karskay & Kasumasa Finance Consultant (Jakarta, Aug - Oct 2023) and BSG Touch Application presentation launch (2022)." data-lang-zh="为主流大型机构提供视觉识别体系。包括雅加达 Karskay & Kasumasa 财务咨询公司（2023.8 - 2023.10）及北苏拉威西银行 BSG Touch 应用发布会演示系统（2022）。">Engineered brand identities for high-profile firms, including Karskay & Kasumasa Finance Consultant (Jakarta, Aug - Oct 2023) and BSG Touch Application presentation launch (2022).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
+                            <span data-lang-en="Directed full video production campaigns for Manado City Government regarding civil laws and community guidelines (Dec 2022)." data-lang-zh="为万鸦老市政府（2022.12）操盘摄制了关于轻罪法规及市民法则的官方教育级视频作品。">Directed full video production campaigns for Manado City Government regarding civil laws and community guidelines (Dec 2022).</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 4. Big Dade Interactive (image_041d40.png & image_041cfb.png) -->
+                <div class="timeline-item relative group bg-[#151515] p-6 md:p-8 border border-white/10 hover:border-grunge-red transition-colors shadow-2xl rounded-lg">
+                    <div class="absolute -left-[35px] md:-left-[51px] top-8 w-6 h-6 rounded-full bg-grunge-black border-4 border-grunge-red group-hover:bg-grunge-red transition-colors z-20"></div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="inline-block px-3 py-1 bg-white/10 text-white font-mono text-xs uppercase rounded" data-lang-en="2018 - Present" data-lang-zh="2018年 - 至今">2018 - Present</div>
+                        <span class="font-mono text-[10px] text-stone-500 uppercase tracking-widest"><i class="fa-solid fa-gamepad"></i> Remote • Indonesia (Passive since Apr 2024)</span>
+                    </div>
+
+                    <h3 class="font-syne text-2xl md:text-3xl font-black text-white uppercase mb-1" data-lang-en="Founder / Chief Product Officer / Acting IT Project Manager" data-lang-zh="创始人 / 首席产品官 / IT项目经理">Founder / Chief Product Officer / Acting IT Project Manager</h3>
+                    <h4 class="font-space text-lg text-grunge-red font-bold uppercase tracking-wider mb-6">Big Dade Interactive <span class="text-stone-500 text-xs font-normal font-mono">(prev. Studio)</span></h4>
+                    
+                    <ul class="space-y-3 font-space text-stone-300 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
+                            <span data-lang-en="Initiated tenure as VR and web consultant, executing premium projects including Manado 360 and Luley Hotels Digital Architecture." data-lang-zh="起步于VR和Web技术咨询，落地开发 Manado 360 沉浸式系统与 Luley 酒店数字技术。">Initiated tenure as VR and web consultant, executing premium projects including Manado 360 and Luley Hotels Digital Architecture.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
+                            <span data-lang-en="Developed Manguni Squad, a landmark FPS mobile game. Overseered visuals, character design, and physical merchandise. Awarded Top 10 IP in Indonesia by BEKRAF at Katapel Batch 2019." data-lang-zh="主导研发印尼首批代表性 FPS 手游《Manguni Squad》。独立执导游戏主视觉、人物资产及周边实体产品。荣获印尼国家创意经济局（BEKRAF）Katapel 2019 全印尼十大 IP 称号。">Developed Manguni Squad, a landmark FPS mobile game. Overseered visuals, character design, and physical merchandise. Awarded Top 10 IP in Indonesia by BEKRAF at Katapel Batch 2019.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-play text-grunge-red text-[10px] mt-1.5 flex-shrink-0"></i>
+                            <span data-lang-en="Led end-to-end development of Wardeka Battleground, Indonesia's first multiplayer TPS mobile game. Supervised a cross-functional team of product designers, illustrators, and 3D artists, managing complex UI/UX, multi-map layout (Utopia & Ranowangko), and weapon/skin renders." data-lang-zh="全链路主导《Wardeka Battleground》（印尼首款多人TPS手游）开发。直接管理产品设计师、插画师和 3D 艺术家团队，统筹游戏 UI/UX、大型战术地图（Utopia & Ranowangko）及 3D 装备皮肤。">Led end-to-end development of Wardeka Battleground, Indonesia's first multiplayer TPS mobile game. Supervised a cross-functional team of product designers, illustrators, and 3D artists, managing complex UI/UX, multi-map layout (Utopia & Ranowangko), and weapon/skin renders.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 5. Nadi Health Tech Sdn Bhd (image_042006.png) -->
+                <div class="timeline-item relative group bg-[#151515] p-6 md:p-8 border border-white/10 hover:border-grunge-red transition-colors shadow-2xl rounded-lg">
+                    <div class="absolute -left-[35px] md:-left-[51px] top-8 w-6 h-6 rounded-full bg-grunge-black border-4 border-stone-600 group-hover:border-grunge-red transition-colors z-20"></div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="inline-block px-3 py-1 bg-white/10 text-white font-mono text-xs uppercase rounded" data-lang-en="Dec 2021 - Oct 2022" data-lang-zh="2021年12月 - 2022年10月">Dec 2021 - Oct 2022</div>
+                        <span class="font-mono text-[10px] text-stone-500 uppercase tracking-widest"><i class="fa-solid fa-heart-pulse"></i> Remote • Malaysia</span>
+                    </div>
+
+                    <h3 class="font-syne text-2xl md:text-3xl font-black text-white uppercase mb-1" data-lang-en="Sr. UX Designer" data-lang-zh="资深用户体验设计师">Sr. UX Designer</h3>
+                    <h4 class="font-space text-lg text-stone-500 font-bold uppercase tracking-wider mb-6">Nadi Health Tech Sdn Bhd <span class="text-xs font-mono lowercase">(Malaysia)</span></h4>
+                    
+                    <ul class="space-y-3 font-space text-stone-300 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-play text-stone-600 text-[10px] mt-1.5 flex-shrink-0 animate-pulse"></i>
+                            <span data-lang-en="Pioneered as the first in-house designer hired following Nadi Health Tech's structural transition from an external agency setup." data-lang-zh="作为 Nadi 医疗技术在从外部代理商体制转型后聘用的首位核心内部设计师。">Pioneered as the first in-house designer hired following Nadi Health Tech's structural transition from an external agency setup.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-play text-stone-600 text-[10px] mt-1.5 flex-shrink-0 animate-pulse"></i>
+                            <span data-lang-en="Successfully delivered the complete end-to-end UI/UX architecture and Design System for an entire healthcare super-app within a rapid 1-month development cycle." data-lang-zh="在短短1个月的高强度研发周期中，独自完成整套健康医疗超级应用（Super App）UI/UX 架构和全套组件设计系统。">Successfully delivered the complete end-to-end UI/UX architecture and Design System for an entire healthcare super-app within a rapid 1-month development cycle.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-play text-stone-600 text-[10px] mt-1.5 flex-shrink-0 animate-pulse"></i>
+                            <span data-lang-en="Directly designed core operational application modules including My Doctor, My Happiness, and foundational global framework modules." data-lang-zh="直接定义并设计核心功能：My Doctor（我的医生）、My Happiness（我的健康生活）及系统底层全球通用模块。">Directly designed core operational application modules including My Doctor, My Happiness, and foundational global framework modules.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: DIRECT CONNECTS / FOOTER -->
     <section id="contact" class="relative bg-grunge-white text-grunge-black py-20 px-6 md:px-12 lg:px-20 border-t-8 border-grunge-red overflow-hidden">
         <div class="absolute left-0 bottom-0 opacity-[0.03] select-none pointer-events-none">
             <h1 class="font-syne text-[24vw] uppercase font-black text-grunge-black leading-none">CONTACT</h1>
@@ -680,7 +698,7 @@ class AndrewLengkong {
                             <span data-lang-en="LET'S FORGE" data-lang-zh="共同打造">LET'S FORGE</span><br>
                             <span class="text-grunge-blue" data-lang-en="GREATNESS." data-lang-zh="非凡杰作。">GREATNESS.</span>
                         </h2>
-                        <p class="text-stone-600 font-mono text-sm leading-relaxed mb-6" data-lang-en="Seeking high-performance design pipelines, custom digital architectures, or strategic brand counseling? Shoot an dispatch below." data-lang-zh="正在寻找高性能的设计流程、定制的数字架构还是战略品牌咨询？请在下方发送邮件。">
+                        <p class="text-stone-600 font-mono text-sm leading-relaxed mb-6" data-lang-en="Seeking high-performance design pipelines, custom digital architectures, or strategic brand counseling? Shoot an dispatch below." data-lang-zh="正在寻找高性能的设计流程、定制的数字架构还是战略 brand 咨询？请在下方发送邮件。">
                             Seeking high-performance design pipelines, custom digital architectures, or strategic brand counseling? Shoot an dispatch below.
                         </p>
                     </div>
@@ -752,7 +770,7 @@ class AndrewLengkong {
                 </div>
                 <div class="flex items-center gap-6 text-xl text-grunge-black">
                     <a href="https://behance.net/andrewlengkong" target="_blank" class="hover:text-grunge-red transition-colors"><i class="fa-brands fa-behance"></i></a>
-                    <a href="https://linkedin.com/in/lengkongandrew/" target="_blank" class="hover:text-grunge-red transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://linkedin.com/in/lengkongandreuw/" target="_blank" class="hover:text-grunge-red transition-colors"><i class="fa-brands fa-linkedin"></i></a>
                     <a href="https://wa.me/6285796400320" target="_blank" class="hover:text-grunge-red transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
@@ -787,7 +805,7 @@ class AndrewLengkong {
 
             <!-- Footer Badge -->
             <div class="p-4 bg-black/60 border-t border-white/10 text-center select-none">
-                <span class="font-mono text-[9px] text-stone-500 uppercase tracking-widest">ANDREW LENGKONG STUDIO NETWORK © 2026</span>
+                <span class="font-mono text-[9px] text-stone-500 uppercase tracking-widest">ANDREUW LENGKONG STUDIO NETWORK © 2026</span>
             </div>
         </div>
     </div>
@@ -1069,7 +1087,7 @@ class AndrewLengkong {
                 ease: 'power2.out'
             }, '-=0.4');
 
-            // Notebook & Summary Box Scroll trigger (Updated Selectors for Section 2)
+            // Notebook & Summary Box Scroll trigger (Section 2)
             gsap.from('#about-left', {
                 scrollTrigger: {
                     trigger: '#about',
@@ -1094,7 +1112,7 @@ class AndrewLengkong {
                 duration: 1
             });
 
-            // Bento Boxes Reveal Trigger (Updated Selector)
+            // Bento Boxes Reveal Trigger (Section 3)
             gsap.from('#services .bento-item', {
                 scrollTrigger: {
                     trigger: '#services',
@@ -1104,6 +1122,19 @@ class AndrewLengkong {
                 opacity: 0,
                 duration: 0.8,
                 stagger: 0.12,
+                ease: 'power2.out'
+            });
+
+            // Experience Timeline Reveal Trigger (Section 4)
+            gsap.from('#experience .timeline-item', {
+                scrollTrigger: {
+                    trigger: '#experience',
+                    start: 'top 60%',
+                },
+                x: 50,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
                 ease: 'power2.out'
             });
         });
